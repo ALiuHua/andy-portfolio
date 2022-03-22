@@ -27,7 +27,15 @@ very import and werid bug i have run into.
 2.// Toggle icon size is control by font-size and html tag by media query. but it seems like i can onyl
 //control size at html instead of in this component?????
 
+Simple:
 
+ div > p
+affects only direct children.
+
+ div p
+affects grandchildren, grandgrandchildren etc. as well. (Won't make a difference in your example)
+
+The child selector isn't supported by IE6.
 
 
 

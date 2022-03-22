@@ -1,12 +1,16 @@
 import React from "react";
 import { Nav, NavLink, Logo, NavList, LinkWrapper, Icon } from "./NavBarStyles";
 import ThemeToggler from "./ThemeToggler";
+import { useRouter } from "next/router";
+import Image from "next/image";
 const NavBar = ({ toggleTheme }) => {
+  const { pathname } = useRouter();
+
   return (
-    <Nav>
+    <Nav isHome={pathname === "/"}>
       <Logo>
         <NavLink href="/">
-          <img src="/images/favicons/favicon-32x32.png" />
+          <img src="/images/favicons/favicon-32x32.png" alt="" />
         </NavLink>
       </Logo>
       <NavList>
@@ -16,17 +20,17 @@ const NavBar = ({ toggleTheme }) => {
           </NavLink>
         </LinkWrapper>
         <LinkWrapper>
-          <NavLink href="/">
+          <NavLink href="/project">
             <span>Project</span>
           </NavLink>
         </LinkWrapper>
         <LinkWrapper>
-          <NavLink href="/">
+          <NavLink href="/about">
             <span>About</span>
           </NavLink>
         </LinkWrapper>
         <LinkWrapper>
-          <NavLink href="/">
+          <NavLink href="#">
             <span>Contact</span>
           </NavLink>
         </LinkWrapper>
@@ -34,7 +38,7 @@ const NavBar = ({ toggleTheme }) => {
 
       <NavList>
         <LinkWrapper>
-          <NavLink href="https://github.com">
+          <NavLink href="https://github.com/ALiuHua">
             <Icon src="/icons/github.svg" />
             <span>Contact</span>
           </NavLink>

@@ -1,7 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Link from "next/link";
-
+/*css can be used to import a piese of css code; because we are in the ``; we can use */
 export const Nav = styled.nav`
+  z-index: 2;
   position: fixed;
   top: 0;
   left: 0;
@@ -12,6 +13,12 @@ export const Nav = styled.nav`
   align-items: center;
   justify-content: space-between;
   font-size: 2rem;
+  background-color: ${({ theme }) => theme.primary};
+  ${({ isHome }) =>
+    isHome &&
+    css`
+      background-color: transparent;
+    `}
 `;
 export const Logo = styled.div`
   position: absolute;
@@ -26,7 +33,9 @@ export const NavList = styled.ul`
   }
 `;
 //why we want make this styled-component; because it can be self contained.
-export const LinkWrapper = styled.li``;
+export const LinkWrapper = styled.li`
+  /* cursor: pointer; */
+`;
 
 const StyledLink = ({ className, children, href }) => (
   <Link href={href}>
@@ -40,6 +49,9 @@ export const NavLink = styled(StyledLink)`
   padding: 2.5rem 3.5rem;
   display: flex;
   align-items: center;
+  /* a {
+    cursor: pointer;
+  } */
   span {
     position: relative;
   }

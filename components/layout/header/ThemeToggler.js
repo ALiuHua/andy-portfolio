@@ -8,12 +8,12 @@ const ThemeToggler = ({ toggleTheme }) => {
   };
   return (
     <ThemeTogglerWrapper>
-      <div
-        className="power-switch"
-        defaultChecked={checked}
-        onChange={onInputChange}
-      >
-        <input type="checkbox" />
+      <div className="power-switch">
+        <input
+          type="checkbox"
+          defaultChecked={checked}
+          onChange={onInputChange}
+        />
         <div className="button">
           <svg className="power-off">
             <use xlinkHref="#line" className="line" />

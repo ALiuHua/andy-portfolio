@@ -61,6 +61,9 @@ export const lightTheme = {
   arrow: "#fe66fe",
   aboutResume: "transparent",
   projectText: "#fefaf6",
+  meida: {
+    sm: "980px",
+  },
 };
 
 export const darkTheme = {

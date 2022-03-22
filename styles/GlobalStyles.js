@@ -19,8 +19,9 @@ html{
 
 
 body{
+    overflow-x: hidden;
 // because the background color are same at full page
-background-color: ${({ theme }) => theme.primary};
+    background-color: ${({ theme }) => theme.primary};
 
 
 font-family:'Biotif',Helvetica,Arial, Helvetica, sans-serif;
