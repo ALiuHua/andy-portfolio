@@ -1,12 +1,13 @@
 import React from "react";
 import GlobalStyles from "../../styles/GlobalStyles";
-import NavBar from "./header/NavBar";
-import Footer from "./footer/Footer";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "../../styles/Theme";
 import { useThemeMode } from "../../hooks/useThemeMode";
 import { useRouter } from "next/router";
 import { Birds } from "../home/Birds";
+
+import NavBar from "./header/NavBar";
+import Footer from "./footer/Footer";
 const Layout = ({ children }) => {
   const { theme, toggleTheme } = useThemeMode();
   const router = useRouter();

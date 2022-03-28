@@ -1,7 +1,12 @@
 import React from "react";
+import ChatBot from "../components/layout/footer/ChatBot";
 
 const contact = () => {
-  return <div>contact</div>;
+  return (
+    <div>
+      <ChatBot />
+    </div>
+  );
 };
 
 export default contact;

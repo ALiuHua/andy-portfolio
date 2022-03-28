@@ -1,15 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import ChatBot from "../components/layout/footer/ChatBot";
 
 const project = () => {
-  return <Container>project</Container>;
+  return (
+    <>
+      <ChatBot />
+    </>
+  );
 };
 
 export default project;
-
-const Container = styled.div`
-  width: 80%;
-  /* background-color: red; */
-  margin: 10rem auto;
-  padding: 25px;
-`;
