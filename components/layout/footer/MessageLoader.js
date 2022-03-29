@@ -17,10 +17,14 @@ const Container = styled.div`
   border-radius: 20px 20px 20px 0px;
   margin-bottom: 3rem;
   margin-left: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   span {
+    position: relative;
     width: 1rem;
     height: 1rem;
-    margin-left: 5rem;
+
     background-color: white;
     display: inline-block;
     border-radius: 50%;
@@ -29,10 +33,19 @@ const Container = styled.div`
       content: "";
       width: 1rem;
       height: 1rem;
-      margin-left: 5rem;
       background-color: white;
       display: inline-block;
       border-radius: 50%;
+      position: absolute;
+      top: 50%;
+    }
+    &::before {
+      left: 0;
+      transform: translate(-25px, -50%);
+    }
+    &::after {
+      right: 0;
+      transform: translate(25px, -50%);
     }
   }
 `;

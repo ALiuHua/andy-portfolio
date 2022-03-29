@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useBotContext } from "../../store/bot-context";
 import {
   RobContainer,
   HeadContainer,
@@ -35,6 +36,7 @@ const ChatBot = () => {
   const [chatStart, setChatStart] = useState(false);
   const [questionState, setQuestionState] = useState(robContent.question);
   const [questionIndex, setQuestionIndex] = useState(null);
+  const { botShown, closeBotUI } = useBotContext();
   const clickHandler = (index) => {
     console.log(index);
     setChatStart(true);
@@ -46,50 +48,59 @@ const ChatBot = () => {
     // console.log(robContentcopy);
   };
   return (
-    <RobContainer>
-      <HeadContainer>
-        <Avatar src="/images/avatar/avatar.jpg" alt="avatar photo" />
-        <RobDescription>
-          <span>Andy Robot</span>
-          <span>Ask me a question</span>
-        </RobDescription>
-        <CloseIcon onClick={() => {}}>
-          <span />
-        </CloseIcon>
-      </HeadContainer>
+    <>
+      {botShown && (
+        <RobContainer>
+          <HeadContainer>
+            <Avatar src="/images/avatar/avatar.jpg" alt="avatar photo" />
+            <RobDescription>
+              <span>Andy Robot</span>
+              <span>Ask me a question</span>
+            </RobDescription>
+            <CloseIcon onClick={closeBotUI}>
+              <span />
+            </CloseIcon>
+          </HeadContainer>
 
-      <ChatContainer>
-        <div>
-          {robContent.self.map((entry, index) => (
-            <BotLine key={index}>{entry}</BotLine>
-          ))}
-        </div>
-
-        {chatStart && (
-          <>
+          <ChatContainer>
             <div>
-              <QuestionLine>{robContent.question[questionIndex]}</QuestionLine>
+              {robContent.self.map((entry, index) => (
+                <BotLine key={index}>{entry}</BotLine>
+              ))}
             </div>
-            <div>
-              <BotLine>{robContent.answer[questionIndex]}</BotLine>
-            </div>
-          </>
-        )}
 
-        <div>
-          {questionState.map((que, index) =>
-            questionIndex === index ? (
-              ""
-            ) : (
-              <BotQuestion key={index} onClick={clickHandler.bind(null, index)}>
-                {que}
-              </BotQuestion>
-            )
-          )}
-        </div>
-      </ChatContainer>
-      <MessageLoader />
-    </RobContainer>
+            {chatStart && (
+              <>
+                <div>
+                  <QuestionLine>
+                    {robContent.question[questionIndex]}
+                  </QuestionLine>
+                </div>
+                <div>
+                  <BotLine>{robContent.answer[questionIndex]}</BotLine>
+                </div>
+              </>
+            )}
+
+            <div>
+              {questionState.map((que, index) =>
+                questionIndex === index ? (
+                  ""
+                ) : (
+                  <BotQuestion
+                    key={index}
+                    onClick={clickHandler.bind(null, index)}
+                  >
+                    {que}
+                  </BotQuestion>
+                )
+              )}
+            </div>
+          </ChatContainer>
+          <MessageLoader />
+        </RobContainer>
+      )}
+    </>
   );
 };
 

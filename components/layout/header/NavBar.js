@@ -3,9 +3,10 @@ import { Nav, NavLink, Logo, NavList, LinkWrapper, Icon } from "./NavBarStyles";
 import ThemeToggler from "./ThemeToggler";
 import { useRouter } from "next/router";
 import Image from "next/image";
-const NavBar = ({ toggleTheme }) => {
+import { useBotContext } from "../../store/bot-context";
+const NavBar = ({ toggleTheme, setBotShownState }) => {
   const { pathname } = useRouter();
-
+  const { openBotUI } = useBotContext();
   return (
     <Nav isHome={pathname === "/"}>
       <Logo>
@@ -29,7 +30,7 @@ const NavBar = ({ toggleTheme }) => {
             <span>About</span>
           </NavLink>
         </LinkWrapper>
-        <LinkWrapper>
+        <LinkWrapper onClick={openBotUI}>
           <NavLink href="#">
             <span>Contact</span>
           </NavLink>
@@ -44,7 +45,7 @@ const NavBar = ({ toggleTheme }) => {
           </NavLink>
         </LinkWrapper>
         <LinkWrapper>
-          <NavLink href="www.linkedin.com">
+          <NavLink href="https://github.com/ALiuHua">
             <Icon src="/icons/linkedin.svg" />
             <span>Contact</span>
           </NavLink>

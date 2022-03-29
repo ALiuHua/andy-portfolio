@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import GlobalStyles from "../../styles/GlobalStyles";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "../../styles/Theme";
 import { useThemeMode } from "../../hooks/useThemeMode";
 import { useRouter } from "next/router";
 import { Birds } from "../home/Birds";
+import { BotContext } from "../store/bot-context";
+import BotContextProvider from "../store/bot-context";
 
 import NavBar from "./header/NavBar";
 import Footer from "./footer/Footer";
@@ -12,16 +14,19 @@ const Layout = ({ children }) => {
   const { theme, toggleTheme } = useThemeMode();
   const router = useRouter();
   const currentPath = router.pathname;
+
   return (
-    <ThemeProvider theme={theme === "lightTheme" ? lightTheme : darkTheme}>
-      <GlobalStyles />
-      {currentPath === "/" && <Birds theme={theme} />}
-      <header style={{ zIndex: 2 }}>
-        <NavBar toggleTheme={toggleTheme} />
-      </header>
-      <main style={{ zIndex: 1 }}>{children}</main>
-      <Footer />
-    </ThemeProvider>
+    <BotContextProvider>
+      <ThemeProvider theme={theme === "lightTheme" ? lightTheme : darkTheme}>
+        <GlobalStyles />
+        {currentPath === "/" && <Birds theme={theme} />}
+        <header style={{ zIndex: 2 }}>
+          <NavBar toggleTheme={toggleTheme} />
+        </header>
+        <main style={{ zIndex: 1 }}>{children}</main>
+        <Footer style={{ zIndex: 3 }} />
+      </ThemeProvider>
+    </BotContextProvider>
   );
 };
 

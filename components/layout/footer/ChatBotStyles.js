@@ -77,12 +77,12 @@ export const CloseIcon = styled.div`
 // we must give a fixed height/width to make a container overflow take into effect
 //like in this cast to make scrool bar visiable.
 export const ChatContainer = styled.div`
-  height: 75vh;
+  height: 60vh;
 
   overflow: auto;
 `;
 export const BotLine = styled.p`
-  width: 75%;
+  width: 80%;
   padding: 12px 24px;
   background-color: #fff;
   border-radius: 8px;
