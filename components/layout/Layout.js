@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
           <NavBar toggleTheme={toggleTheme} />
         </header>
         <main style={{ zIndex: 1 }}>{children}</main>
-        <Footer style={{ zIndex: 3 }} />
+        <Footer style={{ zIndex: 2 }} />
       </ThemeProvider>
     </BotContextProvider>
   );

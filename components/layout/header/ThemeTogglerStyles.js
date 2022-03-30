@@ -169,3 +169,5 @@ export const ThemeTogglerWrapper = styled.div`
 
 // icon size is control by font-size and html tag by media query. but it seems like i can onyl
 //control size at html instead of in this component?????
+
+// color is not shown as expected but similar; maybe it's caused by zindex.
