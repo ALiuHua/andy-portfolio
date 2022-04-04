@@ -1,5 +1,6 @@
 import styled, { ThemeProvider } from "styled-components";
 export const HeroSection = styled.section`
+  /* overflow-y: auto; */
   p {
     font-size: 1.8rem;
     color: ${({ theme }) => theme.grey};
@@ -14,7 +15,7 @@ export const HeroContainer = styled.div`
   width: 50%;
   height: 100vh;
   margin: 0 auto;
-
+  /* -webkit-scroll-margin-top: 8rem; */
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -22,9 +23,17 @@ export const HeroContainer = styled.div`
   align-items: center;
   position: relative;
 
+  @media only screen and (max-width: 53em) {
+    width: 75%;
+    height: 70vh;
+  }
+
   h1 {
     font-size: 7rem;
     color: ${({ theme }) => theme.title};
+    @media only screen and (max-width: 53em) {
+      font-size: 6rem;
+    }
   }
   p {
     font-size: 1.8rem;
@@ -40,7 +49,7 @@ export const HeroContainer = styled.div`
     bottom: 0rem;
     width: 8rem;
     height: 8rem;
-
+    cursor: pointer;
     &::after {
       display: flex;
       justify-content: center;
@@ -71,8 +80,8 @@ export const HeroContainer = styled.div`
 `;
 
 export const ContentContainer = styled.div`
-  width: 80%;
-  margin: 5rem auto;
+  width: 70%;
+  margin: 8rem auto;
   display: flex;
   flex-direction: ${({ layout }) => (layout ? layout : "row")};
   gap: 3rem;
@@ -80,6 +89,16 @@ export const ContentContainer = styled.div`
   /* @media only screen and (max-width: ${({ theme: { media } }) => media.sm}) {
     flex-direction: ${({ layout }) => (layout ? layout : "column")};
   } */
+  /* @media only screen and (max-width: 72.5em) {
+    flex-direction: column-reverse;
+    width: 80%;
+    margin: 9rem auto;
+  } */
+  @media only screen and (max-width: 53em) {
+    flex-direction: column-reverse;
+    width: 85%;
+    margin: 0 auto 9rem;
+  }
 `;
 export const ImgContainer = styled.div`
   flex: 1;
@@ -88,6 +107,16 @@ export const ImgContainer = styled.div`
   align-items: center;
   /* img {
     width: 85%;
+  } */
+  @media only screen and (max-width: 72.5em) {
+    img {
+      width: 85%;
+    }
+  }
+  /* @media only screen and (max-width: 53em) {
+    img {
+      width: 85%;
+    }
   } */
 `;
 export const DescriptionContainer = styled.div`

@@ -1,6 +1,10 @@
 import React from "react";
+import {
+  LinkButtonWrapper,
+  SocialButtons,
+  Icon,
+} from "../layout/header/NavBarStyles";
 import { HeroSection, HeroWrapper, PrimaryHeading } from "./HeroStyles";
-
 const Hero = () => {
   return (
     <HeroSection>
@@ -15,6 +19,30 @@ const Hero = () => {
           development. <br />
           Programming makes me a happy man😄
         </p>
+        <SocialButtons>
+          <LinkButtonWrapper href="https://github.com/ALiuHua">
+            <Icon
+              src="/icons/github.svg"
+              // src={`${
+              //   theme === "lightTheme"
+              //     ? "/icons/github.svg"
+              //     : "/icons/github-dark.svg"
+              // }`}
+            />
+            <span>Contact</span>
+          </LinkButtonWrapper>
+          <LinkButtonWrapper href="https://github.com/ALiuHua">
+            <Icon
+              src="/icons/github.svg"
+              // src={`${
+              //   theme === "lightTheme"
+              //     ? "/icons/github.svg"
+              //     : "/icons/github-dark.svg"
+              // }`}
+            />
+            <span>Contact</span>
+          </LinkButtonWrapper>
+        </SocialButtons>
       </HeroWrapper>
     </HeroSection>
   );

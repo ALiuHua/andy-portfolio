@@ -10,7 +10,9 @@ export const ThemeTogglerWrapper = styled.div`
   /* @media (max-width: 53.125em) {
     margin-left: auto;
   } */
-
+  @media only screen and (max-width: 87.5em) {
+    padding: 2.5rem 2.5rem;
+  }
   @keyframes line-animation {
     0% {
       transform: translateY(0);

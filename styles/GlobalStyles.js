@@ -11,8 +11,24 @@ html{
     box-sizing: border-box;
 //=================================
     scroll-behavior: smooth;
-    @media only screen and (min-width:112.5em) {
+    @media only screen and (min-width:87.5em) {
         font-size:82.5%;
+        
+    }
+    @media only screen and (max-width:87.5em) {
+        font-size:68.75%;
+        
+    }
+    @media only screen and (max-width:72.5em) {
+        font-size:62.5%;
+        
+    }
+    /* @media only screen and (max-width:53em) {
+        font-size:62.5%;
+        
+    } */
+    @media only screen and (max-width:35em) {
+        font-size:50%;
         
     }
 }

@@ -1,83 +1,71 @@
-import React from "react";
-import styled, { keyframes } from "styled-components";
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+
 const MessageLoader = () => {
   return (
     <Container>
-      <span>
-        <span />
-      </span>
+      <span></span>
+      <span></span>
+      <span></span>
     </Container>
   );
 };
 
 export default MessageLoader;
+export const TimeDelay = ({ children }) => {
+  // const [indx, setIndx] = useState(index);
+  // const [newr, setNewr] = useState(false);
+  // const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isFirst, setIsFirst] = useState(true);
 
+  useEffect(() => {
+    console.log("ruing 2");
+    setTimeout(() => {
+      setIsLoading(false);
+
+      console.log("ruing 3");
+    }, 2000);
+
+    return () => {};
+  }, []);
+
+  return isLoading ? <MessageLoader /> : children;
+};
 const Container = styled.div`
-  width: 8rem;
-  height: 5.2rem;
-  background-color: orange;
-  border-radius: 20px 20px 20px 0px;
-  margin-bottom: 3rem;
-  margin-left: 3rem;
+  background-color: #fff6eb;
+  padding: 1.2rem 2.4rem;
+  border-radius: 2rem;
+  border-bottom-left-radius: 2px;
+  margin-top: 1.6rem;
+  width: 30%;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  &:hover {
-    /* span::before {
-      animation: loading 1s infinite ease-in-out;
-      animation-delay: 300ms;
-    } */
-    span {
-      span {
-        animation: loading 1s infinite ease-in-out;
-        animation-delay: 350ms;
-      }
+  /* if you set width and height which are not work; maybe you need to set element as inline-block */
+  span {
+    /* padding: 0;
+    margin: 0; */
+    width: 0.8rem;
+    height: 0.8rem;
+    margin: 1rem 0;
+    display: inline-block;
+    background-color: #ffdfb9;
+    /* line-height: 1; */
+    &:not(:last-child) {
+      margin-right: 1rem;
     }
-    span::after {
-      animation: loading 1s infinite ease-in-out;
-      animation-delay: 500ms;
-    }
-    span::before {
-      animation: loading 1s infinite ease-in-out;
+    border-radius: 50%;
+    animation: loading 1.4s infinite ease-in-out;
+
+    &:nth-child(1) {
       animation-delay: 200ms;
     }
-  }
-  span {
-    span {
-      position: relative;
-      width: 0.7rem;
-      height: 0.7rem;
-
-      background-color: white;
-      display: inline-block;
-      border-radius: 50%;
-      background-color: #ffdfb9;
+    &:nth-child(2) {
+      animation-delay: 300ms;
     }
-
-    &::before,
-    &::after {
-      content: "";
-      width: 0.7rem;
-      height: 0.7rem;
-      background-color: white;
-      display: inline-block;
-      border-radius: 50%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-color: #ffdfb9;
-    }
-    &::before {
-      /* transform: translate(-15px, -50%); */
-      /* transform: translate(-15px, -50%); */
-      margin-left: -15px;
-      /* animation: loading 0.5 ease-in-out 0.2; */
-    }
-    &::after {
-      margin-left: 15px;
-      /* transform: translate(15px, -50%); */
-      /* animation: loading 0.5 ease-in-out 0.4; */
+    &:nth-child(3) {
+      animation-delay: 400ms;
     }
   }
 
@@ -94,90 +82,5 @@ const Container = styled.div`
       transform: translateY(0px);
       background-color: #feb254; //rgba(20,105,69,.2);
     }
-    /* 0% {
-      transform: translateY(0);
-    }
-    25% {
-      transform: translateY(-5px);
-    }
-    50% {
-      transform: translateY(-10px);
-    } */
-    /* 100% {
-      transform: translateY(0);
-    } */
   }
 `;
-// import * as styled from "./styles";
-
-/*========================================================== */
-/*
-export default function MessageLoader() {
-  return (
-    <TypingBubble>
-      <div className="typing">
-        <div className="dot"></div>
-        <div className="dot"></div>
-        <div className="dot"></div>
-      </div>
-    </TypingBubble>
-  );
-}
-
-export const TypingBubble = styled.div`
-  background-color: #fff6eb;
-  padding: 1.6rem 2.8rem;
-  border-radius: 2rem;
-  border-bottom-left-radius: 2px;
-  margin-top: 1.2rem;
-  width: 30%;
-
-  .typing {
-    align-items: center;
-    display: flex;
-    height: 1.7rem;
-
-    .dot {
-      animation: TypingAnimation 1s infinite ease-in-out;
-      background-color: #ffdfb9;
-      border-radius: 50%;
-      height: 0.7rem;
-      margin-right: 4px;
-      vertical-align: middle;
-      width: 0.7rem;
-      display: inline-block;
-
-      :nth-child(1) {
-        animation-delay: 200ms;
-      }
-
-      :nth-child(2) {
-        animation-delay: 300ms;
-      }
-
-      :nth-child(3) {
-        animation-delay: 400ms;
-      }
-
-      :last-child {
-        margin-right: 0;
-      }
-    }
-  }
-
-  @keyframes TypingAnimation {
-    0% {
-      transform: translateY(0px);
-      background-color: #ffdfb9; // rgba(20,105,69,.7);
-    }
-    28% {
-      transform: translateY(-7px);
-      background-color: #ffc988; //rgba(20,105,69,.4);
-    }
-    44% {
-      transform: translateY(0px);
-      background-color: #feb254; //rgba(20,105,69,.2);
-    }
-  }
-`;
-*/

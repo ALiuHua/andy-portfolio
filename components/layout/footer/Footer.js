@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import ChatBot from "./ChatBot";
 import { useBotContext } from "../../store/bot-context";
 import styled from "styled-components";
@@ -12,6 +12,8 @@ const Footer = () => {
         </Button>
       )}
       {botShown && <ChatBot></ChatBot>}
+      {/* {botShown && <ChatBot ref={botRef}></ChatBot>} */}
+      {/* function components can not be given ref */}
     </FooterWrapper>
   );
 };
@@ -22,7 +24,7 @@ export const FooterWrapper = styled.footer`
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 8rem;
+  /* height: 8rem; */
   z-index: 2;
   display: flex;
   align-items: center;
@@ -55,6 +57,8 @@ export const StyledChatBotIcon = styled(ChatBotIcon)`
   /* fill: ${({ theme }) => theme.primary}; */
 `;
 const Button = styled.button`
+  position: absolute;
+  bottom: 2rem;
   width: 6rem;
   height: 5.5rem;
   display: flex;

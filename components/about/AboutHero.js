@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import { ThemeProvider } from "styled-components";
 import {
@@ -9,6 +9,12 @@ import {
   DescriptionContainer,
 } from "./AboutStyles";
 const AboutHero = () => {
+  const contentRef = useRef();
+  const scrollToViewHandler = () => {
+    //to resolve the problem that we got fixed header cover the scroll view.
+    contentRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+    // window.scroll(0, contentRef.current.offsetTop - 112);
+  };
   return (
     <HeroSection>
       <HeroContainer>
@@ -17,9 +23,9 @@ const AboutHero = () => {
           Hello! My name is Adrian, I'm a self-taught front-end developer living
           in sunny Brisbane, Australia.
         </p>
-        <span></span>
+        <span onClick={scrollToViewHandler}></span>
       </HeroContainer>
-      <ContentContainer>
+      <ContentContainer ref={contentRef}>
         <ImgContainer>
           <img src="/images/about/mails.png" />
         </ImgContainer>

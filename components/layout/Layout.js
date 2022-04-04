@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import GlobalStyles from "../../styles/GlobalStyles";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "../../styles/Theme";
 import { useThemeMode } from "../../hooks/useThemeMode";
 import { useRouter } from "next/router";
 import { Birds } from "../home/Birds";
-import { BotContext } from "../store/bot-context";
 import BotContextProvider from "../store/bot-context";
 
 import NavBar from "./header/NavBar";
@@ -21,7 +20,7 @@ const Layout = ({ children }) => {
         <GlobalStyles />
         {currentPath === "/" && <Birds theme={theme} />}
         <header style={{ zIndex: 2 }}>
-          <NavBar toggleTheme={toggleTheme} />
+          <NavBar toggleTheme={toggleTheme} theme={theme} />
         </header>
         <main style={{ zIndex: 1 }}>{children}</main>
         <Footer style={{ zIndex: 2 }} />

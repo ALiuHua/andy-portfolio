@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useBotContext } from "../../store/bot-context";
 import {
   RobContainer,
@@ -9,6 +9,7 @@ import {
   BotLine,
   QuestionLine,
   CloseIcon,
+  BotQuestionWrapper,
   BotQuestion,
 } from "./ChatBotStyles";
 import MessageLoader from "./MessageLoader";
@@ -34,13 +35,56 @@ const robContent = {
 
 const ChatBot = () => {
   const [chatStart, setChatStart] = useState(false);
-  const [questionState, setQuestionState] = useState(robContent.question);
   const [questionIndex, setQuestionIndex] = useState(null);
-  const { botShown, closeBotUI } = useBotContext();
+  const { botShown, closeBotUI, tbotRef } = useBotContext();
+  const [isLoading, setIsLoading] = useState(true);
+  const botRef = useRef();
+  const answerRef = useRef();
+  // need to be optimized. too many time runing.
+
+  // this event handler will ouccer every time when the chat mount. but at first,i got a
+  //bug that this click handler runing twice but i click once. so it's this handler has been
+  // attached twice. but only removed once. because i got project page also attacehed the bot component
+  // when i click project link which cause handler been attached twice.
+  useEffect(() => {
+    const clickOutsideHandler = (e) => {
+      if (
+        !botRef?.current?.contains(e.target) &&
+        !tbotRef?.current?.contains(e.target)
+      )
+        closeBotUI();
+    };
+    console.log("handler added");
+    document.addEventListener("mousedown", clickOutsideHandler);
+    return () => {
+      console.log("handler removed");
+      document.removeEventListener("mousedown", clickOutsideHandler);
+    };
+  }, []);
+  // one issue still need to be address: click outside handler still works on click on the contact link.
+  // issue on this part:
+  /* i want to add spinner before the message shown. it's ok to understand that we need
+  to use setTimeout and useEffect together.
+  the problem is that i want to create a component that can render spinner first and then render 
+  children content later. but because i need to reuse this component for different question. and i need
+  useState to make this component re-render. but the problem is that state will perserve and i can 
+  only change state in useEffect part and can not re-initial state when it's render. in this case we
+  need to another handler to reinitial state for each re-render. */
+  useEffect(() => {
+    const identifier = setTimeout(() => {
+      setIsLoading(false);
+      answerRef.current?.scrollIntoView({ behavior: "smooth" });
+      // be familary with this functionality: dom.scroolIntoView({ behavior: "smooth" });
+    }, 2000);
+    return () => {
+      clearTimeout(identifier);
+    };
+  }, [questionIndex]);
   const clickHandler = (index) => {
-    console.log(index);
     setChatStart(true);
     setQuestionIndex(index);
+    //Re-init re-render state for delay.
+    setIsLoading(true);
     // const robContentcopy = robContent.question.map((entry, indx) =>
     //   indx === index ? null : entry
     // );
@@ -50,7 +94,7 @@ const ChatBot = () => {
   return (
     <>
       {botShown && (
-        <RobContainer>
+        <RobContainer ref={botRef}>
           <HeadContainer>
             <Avatar src="/images/avatar/avatar.jpg" alt="avatar photo" />
             <RobDescription>
@@ -61,29 +105,31 @@ const ChatBot = () => {
               <span />
             </CloseIcon>
           </HeadContainer>
-
           <ChatContainer>
             <div>
               {robContent.self.map((entry, index) => (
                 <BotLine key={index}>{entry}</BotLine>
               ))}
             </div>
-
             {chatStart && (
               <>
                 <div>
-                  <QuestionLine>
+                  <QuestionLine ref={answerRef}>
                     {robContent.question[questionIndex]}
                   </QuestionLine>
                 </div>
-                <div>
-                  <BotLine>{robContent.answer[questionIndex]}</BotLine>
-                </div>
+                {isLoading && <MessageLoader />}
+                {!isLoading && (
+                  <div>
+                    {/* <div ref={answerRef}> */}
+                    <BotLine>{robContent.answer[questionIndex]}</BotLine>
+                  </div>
+                )}
               </>
             )}
 
-            <div>
-              {questionState.map((que, index) =>
+            <BotQuestionWrapper>
+              {robContent.question.map((que, index) =>
                 questionIndex === index ? (
                   ""
                 ) : (
@@ -95,9 +141,8 @@ const ChatBot = () => {
                   </BotQuestion>
                 )
               )}
-            </div>
+            </BotQuestionWrapper>
           </ChatContainer>
-          <MessageLoader />
         </RobContainer>
       )}
     </>

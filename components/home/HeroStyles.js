@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink } from "../layout/header/NavBarStyles";
 export const HeroSection = styled.section`
   padding: 0 2.5vw;
   width: 100vw;
@@ -11,8 +12,8 @@ export const HeroSection = styled.section`
 
 //width % is just content or including padding??????
 export const HeroWrapper = styled.div`
-  padding: 3.2rem 2.5rem;
-  width: 100%;
+  padding: 3.5rem 2.5rem;
+  width: 97%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -31,4 +32,8 @@ export const PrimaryHeading = styled.h1`
   line-height: 1.1;
   color: ${({ theme }) => theme.title};
   font-family: "Bogart";
+`;
+
+export const LinkButtonWrapper = styled(NavLink)`
+  background-color: green;
 `;
