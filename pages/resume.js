@@ -57,7 +57,7 @@ const Resume = () => {
   return (
     <>
       <ResumeSection>
-        <ResumeWrapper>
+        <ResumeWrapper className="resumePage">
           <ResumeStyle />
           <BriefInfo>
             <Title>
@@ -70,7 +70,7 @@ const Resume = () => {
                 {buttonInfo.map((item, index) => (
                   <ContactItem key={index}>
                     <ContactButton hrefStr={item?.hrefStr}>
-                      <span>{item.src}</span>
+                      <span className="contactIcon">{item.src}</span>
                       <span>{item.details}</span>
                     </ContactButton>
                   </ContactItem>
@@ -409,8 +409,10 @@ export async function getStaticProps() {
 
 export const ResumeSection = styled.section`
   padding: 85px 2.5%;
+  color: ${({ theme }) => theme.grey};
   p {
     margin-bottom: 2rem;
+    font-size: 1.4rem;
   }
   ul {
     /* list-style: circle; */
@@ -419,6 +421,7 @@ export const ResumeSection = styled.section`
   li {
     display: list-item;
     margin-bottom: 1.8rem;
+    font-size: 1.4rem;
   }
   /* position: relative; */
 `;
@@ -426,15 +429,25 @@ export const ResumeWrapper = styled.div`
   //纸张内容盒子
   box-sizing: border-box;
   position: relative;
-  width: 210mm;
-  height: 297mm;
-  background-color: #aaa;
-  /* padding: 25.4mm 31.7mm; */
-  /* aspect-ratio: 210/297; */
-  padding: 6% 5%;
+  width: 80vw;
+  /* width: 210mm;
+  height: 297mm; */
+  padding: 6vw 5vw;
   margin: 0 auto;
   display: flex;
   gap: 4rem;
+  border: 1px solid #aaa;
+  @media screen and (max-width: 87.5em) {
+    width: 90vw;
+  }
+  @media screen and (max-width: 60em) {
+    flex-direction: column;
+    gap: 0;
+  }
+  @media only screen and (max-width: 35em) {
+    padding: 4vw 2vw;
+    border: 1px solid #aaa;
+  }
 `;
 export const BriefInfo = styled.div`
   flex: 1;
@@ -448,13 +461,20 @@ export const BriefInfo = styled.div`
   }
   ::before {
     content: "<";
-    top: 3%;
-    /* left: 5%; */
+    /* top: 3%; */
+    top: 6vw;
+    transform: translateY(-50%);
   }
   ::after {
     content: "/>";
-    bottom: 4%;
-    /* left: 5%; */
+    bottom: 6vw;
+    transform: translateY(50%);
+  }
+  @media screen and (max-width: 60em) {
+    ::before,
+    ::after {
+      display: none;
+    }
   }
 `;
 export const DetailsInfo = styled.div`
@@ -463,6 +483,9 @@ export const DetailsInfo = styled.div`
 export const Title = styled.h1`
   margin-bottom: 3.5rem;
   text-transform: uppercase;
+  @media only screen and (max-width: 35em) {
+    margin-bottom: 2.5rem;
+  }
   span {
     display: block;
     font-size: 1.8rem;
@@ -486,7 +509,7 @@ export const CardWrapper = styled.div`
   margin-bottom: 3rem;
 `;
 export const SubTitle = styled.h2`
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   text-transform: uppercase;
   letter-spacing: 4px;
   font-weight: 700;
@@ -496,6 +519,9 @@ export const SubTitle = styled.h2`
     margin-right: 8px;
     /* font-weight: 700;
     font-size: 1.4rem; */
+  }
+  @media print {
+    font-size: 1.4rem;
   }
 `;
 export const ContactList = styled.ul`
@@ -515,7 +541,11 @@ export const ButtonWrapper = styled.button`
   background: none;
   border: none;
   padding: 0.5rem 0;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  color: ${({ theme }) => theme.grey};
+  @media print {
+    font-size: 1.2rem;
+  }
   span:first-child {
     display: inline-block;
     width: 1.5rem;
@@ -548,13 +578,18 @@ export const SkillTag = styled.div`
     height: 1.6rem;
   }
   span {
-    font-size: 1.3rem;
+    /* font-size: 1.3rem; */
+    font-size: 1.4rem;
     color: #fff;
   }
 `;
 export const StageItem = styled.div`
   display: flex;
   margin-bottom: 2rem;
+  font-size: 1.4rem;
+  @media print {
+    font-size: 1.2rem;
+  }
   div {
     display: flex;
     flex-direction: column;
@@ -578,8 +613,12 @@ export const StageItem = styled.div`
 `;
 export const KeyFeatureListWrapper = styled.div`
   & > span {
+    font-size: 1.4rem;
     display: block;
     margin-bottom: 1rem;
+    @media print {
+      font-size: 1.2rem;
+    }
   }
 `;
 export const KeyFeatureList = styled.ul`
@@ -607,7 +646,9 @@ export const KeyFeatureList = styled.ul`
 `;*/
 export const ResumeStyle = createGlobalStyle`
   @media print {
- 
+    *{
+      color:#000
+    }
     @page{
       // 打印纸张样式
       size: A4;
@@ -632,6 +673,7 @@ export const ResumeStyle = createGlobalStyle`
           background-color: green;
           margin: 0 auto; */
           margin: 0 !important;
+          /* background-color: #fff !important;  // needed later */
           /* width:21cm;
           height: 29.7cm */
     }
@@ -641,7 +683,25 @@ export const ResumeStyle = createGlobalStyle`
     }
     header{display:none}
     footer{display:none !important}
-  
+    .resumePage{
+      box-sizing: border-box;
+      position: relative;
+      width: 210mm;
+      height: 297mm;
+      background:#fff;
+      /* padding: 60px 50px; */
+      padding: 1cm;
+      /* padding: 1.5cm; */
+      margin: 0 auto;
+      display: flex;
+      gap: .8cm;
+      /* gap: 4rem; */
+      border:none;
+    }
+    .contactIcon{
+      svg{fill:#000 !important}
+      
+    }
 
     } 
 

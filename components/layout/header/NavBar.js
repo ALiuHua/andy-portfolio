@@ -47,6 +47,11 @@ const NavBar = ({ toggleTheme, userTheme }) => {
             <span>Contact</span>
           </NavLink>
         </LinkWrapper>
+        <LinkWrapper>
+          <NavLink href="/resume">
+            <span>Resume</span>
+          </NavLink>
+        </LinkWrapper>
       </NavList>
 
       <NavList>

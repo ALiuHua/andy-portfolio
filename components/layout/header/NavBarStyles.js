@@ -78,7 +78,7 @@ export const NavLink = styled(StyledLink)`
     position: relative;
   } */
   @media only screen and (max-width: 87.5em) {
-    padding: 2.5rem 2.5rem;
+    padding: 2.5rem 1.5rem;
   }
   /* @media only screen and (max-width: 28em) {
     padding: 2.5rem 2.5rem;
