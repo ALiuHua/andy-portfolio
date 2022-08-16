@@ -607,7 +607,7 @@ export const ResumeStyle = createGlobalStyle`
     @page{
       // 打印纸张样式
       size: A4;
-      margin:0;
+      margin:0.5cm;
       /* margin: 2cm 3cm; */
       /* margin:220px   */
       // this is the default value of margin in print menu selection. if we set 0 here, then the default margin value is 0;
@@ -627,7 +627,7 @@ export const ResumeStyle = createGlobalStyle`
           aspect-ratio: 21/29.7;// why this is not working
           background-color: green;
           margin: 0 auto; */
-          margin: 0;
+          margin: 0 !important;
           /* width:21cm;
           height: 29.7cm */
     }
