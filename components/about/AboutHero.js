@@ -1,5 +1,8 @@
 import React, { useRef } from "react";
 import Image from "next/image";
+import mailsBoxPic from "../../public/images/about/mails.png";
+import typeWriterPic from "../../public/images/about/typewriter.png";
+import rocketPic from "../../public/images/about/rocket.png";
 import { ThemeProvider } from "styled-components";
 import {
   HeroSection,
@@ -27,7 +30,7 @@ const AboutHero = () => {
       </HeroContainer>
       <ContentContainer ref={contentRef}>
         <ImgContainer>
-          <img src="/images/about/mails.png" />
+          <Image src={mailsBoxPic} alt="mail boxs" />
         </ImgContainer>
 
         <DescriptionContainer>
@@ -41,14 +44,8 @@ const AboutHero = () => {
       </ContentContainer>
       <ContentContainer layout="row-reverse">
         <ImgContainer>
-          <img src="/images/about/typewriter.png" alt="" />
-          {/* <Image
-            src="/images/about/typewriter.png"
-            alt=""
-            width={420}
-            height={400}
-            layout="responsive"
-          /> */}
+          {/* <img src="/images/about/typewriter.png" alt="" /> */}
+          <Image src={typeWriterPic} alt="typewriter" />
         </ImgContainer>
 
         <DescriptionContainer>
@@ -62,7 +59,7 @@ const AboutHero = () => {
       </ContentContainer>
       <ContentContainer>
         <ImgContainer>
-          <img src="/images/about/tools.png" />
+          <Image src={rocketPic} alt="rocket" />
         </ImgContainer>
 
         <DescriptionContainer>

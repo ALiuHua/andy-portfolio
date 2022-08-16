@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import BIRDS from "vanta/dist/vanta.birds.min";
-
+// import Script from "next/script";
 export const Birds = React.memo((props) => {
   const [vantaEffect, setVantaEffect] = useState(0);
   const myRef = useRef(null);
@@ -23,14 +23,14 @@ export const Birds = React.memo((props) => {
     };
   }, [vantaEffect]);
 
-  if (vantaEffect && props.theme === "darkTheme") {
+  if (vantaEffect && props.userTheme === "darkTheme") {
     vantaEffect.setOptions({
       backgroundColor: "#0a192f",
       color1: 0x232e74,
     });
     vantaEffect.restart();
   }
-  if (vantaEffect && props.theme === "lightTheme") {
+  if (vantaEffect && props.userTheme === "lightTheme") {
     vantaEffect.setOptions({
       backgroundColor: "#fefaf6",
       color1: 0xff0000,

@@ -33,15 +33,31 @@ export const TimeDelay = ({ children }) => {
   return isLoading ? <MessageLoader /> : children;
 };
 const Container = styled.div`
+  position: relative;
   background-color: #fff6eb;
   padding: 1.2rem 2.4rem;
-  border-radius: 2rem;
+
+  border-radius: 0.8rem;
   border-bottom-left-radius: 2px;
   margin-top: 1.6rem;
+  margin-left: 3rem;
   width: 30%;
   display: flex;
   align-items: center;
   justify-content: center;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    /* background-color: red; */
+    bottom: 0;
+    left: 0;
+    transform: translateX(-95%);
+    z-index: 1;
+    clip-path: polygon(100% 0, 100% 100%, 50% 100%);
+    background-color: #fff6eb;
+  }
   /* if you set width and height which are not work; maybe you need to set element as inline-block */
   span {
     /* padding: 0;

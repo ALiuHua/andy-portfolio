@@ -2,6 +2,8 @@ import Layout from "../components/layout/Layout";
 import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
+  console.log(Component, pageProps);
+  console.log(pageProps);
   return (
     <>
       <Head>
@@ -36,12 +38,19 @@ function MyApp({ Component, pageProps }) {
         <meta property="og:description" content="Adrian Li's portfolio." />
         <meta property="og:url" content="https://adrian-li.vercel.app/" />
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+        {/* <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script> */}
       </Head>
-      <Layout>
+      {pageProps?.isHiddenLayout ? (
         <Component {...pageProps} />
-      </Layout>
+      ) : (
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      )}
+      {/* <Layout>
+        <Component {...pageProps} />
+      </Layout> */}
     </>
   );
 }

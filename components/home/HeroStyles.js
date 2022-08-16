@@ -35,5 +35,20 @@ export const PrimaryHeading = styled.h1`
 `;
 
 export const LinkButtonWrapper = styled(NavLink)`
-  background-color: green;
+  width: 12rem;
+  background-color: ${({ theme }) => theme.aboutLine};
+  border-radius: 100px;
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export const SocialButtons = styled.div`
+  display: none;
+  @media only screen and (max-width: 53em) {
+    display: flex;
+    gap: 2rem;
+    margin-top: 3rem;
+    /* justify-content: center; */
+  }
 `;

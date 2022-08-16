@@ -4,7 +4,7 @@ import ThemeToggler from "./ThemeToggler";
 import { useRouter } from "next/router";
 // import Image from "next/image";
 import { useBotContext } from "../../store/bot-context";
-const NavBar = ({ toggleTheme, theme }) => {
+const NavBar = ({ toggleTheme, userTheme }) => {
   const { pathname } = useRouter();
   const { openBotUI, tbotRef } = useBotContext();
 
@@ -14,7 +14,7 @@ const NavBar = ({ toggleTheme, theme }) => {
         <NavLink href="/">
           <img
             src={`${
-              theme === "lightTheme"
+              userTheme === "lightTheme"
                 ? "/images/brand/logo.svg"
                 : "/images/brand/logo-dark.svg"
             }`}
@@ -54,25 +54,25 @@ const NavBar = ({ toggleTheme, theme }) => {
           <NavLink href="https://github.com/ALiuHua">
             <Icon
               src={`${
-                theme === "lightTheme"
+                userTheme === "lightTheme"
                   ? "/icons/github.svg"
                   : "/icons/github-dark.svg"
               }`}
             />
-            <span>Contact</span>
+            <span>Github</span>
           </NavLink>
         </LinkWrapper>
 
         <LinkWrapper>
-          <NavLink href="https://github.com/ALiuHua">
+          <NavLink href="https://www.linkedin.com/in/andy-liu-94697a181/">
             <Icon
               src={`${
-                theme === "lightTheme"
+                userTheme === "lightTheme"
                   ? "/icons/linkedin.svg"
                   : "/icons/linkedin-dark.svg"
               }`}
             />
-            <span>Contact</span>
+            <span>Linkedin</span>
           </NavLink>
         </LinkWrapper>
       </NavList>

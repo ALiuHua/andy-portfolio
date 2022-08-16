@@ -6,26 +6,42 @@ import { useThemeMode } from "../../hooks/useThemeMode";
 import { useRouter } from "next/router";
 import { Birds } from "../home/Birds";
 import BotContextProvider from "../store/bot-context";
-
+import Script from "next/script";
 import NavBar from "./header/NavBar";
 import Footer from "./footer/Footer";
 const Layout = ({ children }) => {
-  const { theme, toggleTheme } = useThemeMode();
+  const { userTheme, toggleTheme } = useThemeMode();
   const router = useRouter();
   const currentPath = router.pathname;
-
   return (
-    <BotContextProvider>
-      <ThemeProvider theme={theme === "lightTheme" ? lightTheme : darkTheme}>
-        <GlobalStyles />
-        {currentPath === "/" && <Birds theme={theme} />}
-        <header style={{ zIndex: 2 }}>
-          <NavBar toggleTheme={toggleTheme} theme={theme} />
-        </header>
-        <main style={{ zIndex: 1 }}>{children}</main>
-        <Footer style={{ zIndex: 2 }} />
-      </ThemeProvider>
-    </BotContextProvider>
+    <>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"
+        strategy="beforeInteractive"
+      ></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"
+        strategy="beforeInteractive"
+      ></script>
+      <BotContextProvider>
+        {console.log(userTheme)}
+        <ThemeProvider
+          theme={
+            userTheme === "lightTheme"
+              ? { ...lightTheme, themeName: userTheme }
+              : { ...darkTheme, themeName: userTheme }
+          }
+        >
+          <GlobalStyles />
+          {currentPath === "/" && <Birds userTheme={userTheme} />}
+          <header style={{ zIndex: 2 }}>
+            <NavBar toggleTheme={toggleTheme} userTheme={userTheme} />
+          </header>
+          <main style={{ zIndex: 1 }}>{children}</main>
+          <Footer style={{ zIndex: 2 }} />
+        </ThemeProvider>
+      </BotContextProvider>
+    </>
   );
 };
 

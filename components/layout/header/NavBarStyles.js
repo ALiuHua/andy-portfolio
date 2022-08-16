@@ -1,6 +1,18 @@
 import styled, { css } from "styled-components";
 import Link from "next/link";
+import { Children } from "react";
 /*css can be used to import a piese of css code; because we are in the ``; we can use */
+export const NavList = styled.ul`
+  display: flex;
+  &:nth-child(2) {
+    margin-right: auto;
+  }
+  /* @media only screen and (max-width: 72.5em) {
+    &:nth-child(3) {
+      display: none;
+    }
+  } */
+`;
 export const Nav = styled.nav`
   z-index: 2;
   position: fixed;
@@ -15,6 +27,11 @@ export const Nav = styled.nav`
   justify-content: space-between;
   font-size: 2rem;
   background-color: ${({ theme }) => theme.primary};
+  @media only screen and (max-width: 53em) {
+    & > ul:nth-of-type(2) {
+      display: none;
+    }
+  }
   ${({ isHome }) =>
     isHome &&
     css`
@@ -29,21 +46,14 @@ export const Logo = styled.div`
   img {
     width: 3.5rem;
   }
+  @media only screen and (max-width: 53em) {
+    display: none;
+  }
   /* @media only screen and (max-width: 72.5em) {
     display: none;
   } */
 `;
-export const NavList = styled.ul`
-  display: flex;
-  &:nth-child(2) {
-    margin-right: auto;
-  }
-  /* @media only screen and (max-width: 72.5em) {
-    &:nth-child(3) {
-      display: none;
-    }
-  } */
-`;
+
 //why we want make this styled-component; because it can be self contained.
 export const LinkWrapper = styled.li`
   /* cursor: pointer; */
@@ -75,22 +85,9 @@ export const NavLink = styled(StyledLink)`
   } */
 `;
 
-export const LinkButtonWrapper = styled(NavLink)`
-  width: 12rem;
-  background-color: orange;
-  border-radius: 100px;
-  padding: 1.2rem 2rem;
-`;
-export const SocialButtons = styled.div`
-  display: flex;
-  gap: 2rem;
-  margin-top: 3rem;
-  @media only screen and (min-width: 72.5em) {
-    display: none;
-  }
-`;
 export const Icon = styled.img`
   height: 1.5rem;
   width: 1.5rem;
   margin-right: 0.5rem;
+  display: block;
 `;

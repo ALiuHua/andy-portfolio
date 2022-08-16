@@ -10,6 +10,7 @@ export const BotContext = React.createContext({
 const BotContextProvider = ({ children }) => {
   const [botShown, setBotShown] = useState(false);
   const tbotRef = useRef();
+  // to attached to nav contact button to control click out side and toggle close/open chatbot
   const openBotUI = () => {
     setBotShown(true);
     console.log("clicked open");

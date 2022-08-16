@@ -11,22 +11,22 @@ html{
     box-sizing: border-box;
 //=================================
     scroll-behavior: smooth;
-    @media only screen and (min-width:87.5em) {
+    /* @media only screen and (min-width:87.5em) {
         font-size:82.5%;
         
-    }
-    @media only screen and (max-width:87.5em) {
+    } */
+    /* @media only screen and (max-width:87.5em) {
         font-size:68.75%;
         
-    }
-    @media only screen and (max-width:72.5em) {
-        font-size:62.5%;
-        
-    }
-    /* @media only screen and (max-width:53em) {
+    } */
+    /* @media only screen and (max-width:72.5em) {
         font-size:62.5%;
         
     } */
+    @media only screen and (max-width:53em) {
+        font-size:62.5%;
+        
+    }
     @media only screen and (max-width:35em) {
         font-size:50%;
         
@@ -35,10 +35,11 @@ html{
 
 
 body{
+    
     overflow-x: hidden;
 // because the background color are same at full page
     background-color: ${({ theme }) => theme.primary};
-
+    min-width: 375px;
 
 font-family:'Biotif',Helvetica,Arial, Helvetica, sans-serif;
 font-weight: 400;
@@ -47,6 +48,8 @@ line-height:1.6;
 
 // why we need to set this at body??????????????????
 transition: all .5s linear;
+
+
 }
 
 img{
@@ -83,7 +86,7 @@ p{
     color:#00199b
 }
 
-li{
+ul{
     list-style: none;
 }
 
