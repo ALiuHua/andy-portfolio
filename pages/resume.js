@@ -448,7 +448,6 @@ export const BriefInfo = styled.div`
   }
   ::before {
     content: "<";
-
     top: 3%;
     /* left: 5%; */
   }
