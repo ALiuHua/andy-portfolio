@@ -439,21 +439,23 @@ export const ResumeWrapper = styled.div`
 export const BriefInfo = styled.div`
   flex: 1;
   align-self: center;
+  ::before,
+  ::after {
+    position: absolute;
+    font-size: 5.5rem;
+    font-weight: 700;
+    line-height: 1;
+  }
   ::before {
     content: "<";
-    position: absolute;
-    top: 7%;
+
+    top: 3%;
     /* left: 5%; */
-    font-size: 5rem;
-    line-height: 1;
   }
   ::after {
     content: "/>";
-    position: absolute;
-    bottom: 8%;
+    bottom: 4%;
     /* left: 5%; */
-    font-size: 5rem;
-    line-height: 1;
   }
 `;
 export const DetailsInfo = styled.div`
@@ -465,20 +467,20 @@ export const Title = styled.h1`
   span {
     display: block;
     font-size: 1.8rem;
-    font-weight: 400;
+    /* font-weight: 400; */
+    font-weight: 700;
   }
   span:first-child {
-    font-size: 3rem;
-    font-weight: 700;
-    transform: scale(1, 2);
+    font-size: 3.5rem;
+    transform: scale(1, 1.8);
     transform-origin: 0% 70%;
     letter-spacing: 4px;
   }
   span:nth-child(2) {
-    letter-spacing: 4.5px;
+    letter-spacing: 7px;
   }
   span:nth-child(3) {
-    letter-spacing: 4px;
+    letter-spacing: 6.2px;
   }
 `;
 export const CardWrapper = styled.div`
@@ -488,10 +490,13 @@ export const SubTitle = styled.h2`
   font-size: 1.4rem;
   text-transform: uppercase;
   letter-spacing: 4px;
+  font-weight: 700;
   margin-bottom: 1.4rem;
   ::before {
     content: " /";
     margin-right: 8px;
+    /* font-weight: 700;
+    font-size: 1.4rem; */
   }
 `;
 export const ContactList = styled.ul`
