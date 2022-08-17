@@ -9,6 +9,7 @@ export const ProjectSection = styled.section`
     width: 100%;
     max-width: 85rem;
     margin: 8rem auto 3rem;
+    /* margin: 25rem auto 3rem; */
     color: ${({ theme }) => theme.title};
     padding: 0 3.5rem;
     @media (max-width: 87.5em) {
@@ -25,6 +26,7 @@ export const SectionContent = styled.div`
   max-width: 85rem;
   margin: 0 auto;
   margin-bottom: 3rem;
+  /* margin-top: 8rem; */
   padding: 0 3.5rem;
   @media (max-width: 87.5em) {
     padding: 0 2.5rem;

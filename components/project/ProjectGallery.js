@@ -1,5 +1,6 @@
 import React from "react";
 import { ProjectSection, SectionContent } from "./ProjectStyles";
+// import { Trailer } from "./ProjectCardStyles";
 import ProjectCard from "./ProjectCard";
 const ProjectGallery = () => {
   return (

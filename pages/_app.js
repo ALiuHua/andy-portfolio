@@ -2,8 +2,6 @@ import Layout from "../components/layout/Layout";
 import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
-  console.log(Component, pageProps);
-  console.log(pageProps);
   return (
     <>
       <Head>
@@ -41,13 +39,11 @@ function MyApp({ Component, pageProps }) {
         {/* <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script> */}
       </Head>
-      {pageProps?.isHiddenLayout ? (
+
+      <Layout>
         <Component {...pageProps} />
-      ) : (
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      )}
+      </Layout>
+
       {/* <Layout>
         <Component {...pageProps} />
       </Layout> */}

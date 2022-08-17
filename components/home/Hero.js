@@ -27,7 +27,7 @@ const Hero = () => {
           journey since the first piece of "Hello world" to the functional web
           development. <br />
           It's a beautiful thing to see my code transforming into a product that
-          we can use to browse on internet 😄.
+          we can use to browse in internet world😄.
         </p>
         <SocialButtons>
           <LinkButtonWrapper href="https://github.com/ALiuHua">

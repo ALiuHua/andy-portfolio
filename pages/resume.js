@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import {
+  ContactButton,
   PhoneOutIcon,
   LocationIcon,
   LinkedInIcon,
@@ -16,6 +17,7 @@ import {
   FirebaseIcon,
   MongodbIcon,
   StyledComponentsIcon,
+  DownloadIcon,
 } from "../components/ui/Icons";
 const buttonInfo = [
   {
@@ -29,29 +31,33 @@ const buttonInfo = [
   },
   {
     src: <LinkedInIcon />,
-    details: "linkedin",
-    hrefStr: "linkedin",
+    details: "https://www.linkedin.com/in/andyliu-dev",
+    hrefStr: "https://www.linkedin.com/in/andyliu-dev",
   },
   {
     src: <GithubIcon />,
-    details: "github",
-    hrefStr: "github",
+    details: "https://github.com/ALiuHua",
+    hrefStr: "https://github.com/ALiuHua",
   },
   {
     src: <PhoneOutIcon />,
     details: "0405-056-659",
-    hrefStr: "tel:+0432548840",
+    hrefStr: "tel:+61 0432548840",
+  },
+  {
+    src: <DownloadIcon />,
+    details: "Download Resume",
+    hrefStr:
+      "https://drive.google.com/file/d/1Neh66oJyiG87217mAF55pRB-Lr48LvYK/view?usp=sharing",
   },
 ];
-export const ContactButton = ({ hrefStr, children }) => {
-  // const { themeName } = useContext(ThemeContext);
-  console.log(buttonInfo[0].src);
-  return (
-    <ButtonWrapper>
-      {hrefStr ? <a href={hrefStr}>{children}</a> : <>{children}</>}
-    </ButtonWrapper>
-  );
-};
+// export const ContactButton = ({ hrefStr, children }) => {
+//   return (
+//     <ButtonWrapper>
+//       {hrefStr ? <a href={hrefStr}>{children}</a> : <>{children}</>}
+//     </ButtonWrapper>
+//   );
+// };
 
 const Resume = () => {
   return (
@@ -66,7 +72,7 @@ const Resume = () => {
             </Title>
             <CardWrapper>
               <SubTitle>contact</SubTitle>
-              <ContactList>
+              <ContactList className="contactList">
                 {buttonInfo.map((item, index) => (
                   <ContactItem key={index}>
                     <ContactButton hrefStr={item?.hrefStr}>
@@ -147,11 +153,11 @@ const Resume = () => {
               <KeyFeatureList>
                 <li>
                   Building Front-End Web Applications (HTML, JavaScript ES6,
-                  React, Next.js, Vue)
+                  React, Next.js)
                 </li>
                 <li>
-                  Applying various CSS solutions(Styled- components, Tailwind
-                  CSS, Sass, CSS modules)
+                  Applying various CSS solutions(Styled-components, Sass, CSS
+                  modules)
                 </li>
                 <li>Building Back-End database(MongoDB, Firebase)</li>
                 <li>Interacting with database(RESTful APIs)</li>
@@ -163,32 +169,32 @@ const Resume = () => {
               <StageItem>
                 <div>
                   <span>
-                    Hotflix - A project that got 3.5k upvotes on Reddit
+                    Netflex - A project which can give you the same experience
+                    as Netflix
                   </span>
                   <a href="#">LIVE DEMO</a>
                   <a href="#">CODE</a>
-                  <a href="#">REDDIT</a>
                 </div>
               </StageItem>
               <p>
                 A production-ready, open-source Netflix clone built with React,
-                Next.js, styled-component, and MongoDB.
+                Next.js, styled-component, NextAuth.js, and MongoDB.
               </p>
               <KeyFeatureListWrapper>
                 <span>Important features:</span>
                 <KeyFeatureList>
                   <li>
                     <p>
-                      <strong>Fully responsive with great UX and UI.</strong>"It
-                      looks ridiculously amazing." by one of the comments from
-                      Reddit.
+                      <strong>Fully responsive with great UX and UI. </strong>
+                      It can fit perfectly well with all kinds of screen
+                      devices.
                     </p>
                   </li>
                   <li>
                     <p>
                       <strong>
                         Secure sign-up/sign-in authentication with route
-                        protection.
+                        protection to keep your privite page guarded.
                       </strong>
                       User information is well encrypted both in the front-end
                       and back-end. Unauthorized visits will be redirected.
@@ -196,35 +202,28 @@ const Resume = () => {
                   </li>
                   <li>
                     <p>
-                      <strong>CRUD operation.</strong> After login, users can
-                      add, save, edit and delete their profiles.
+                      <strong>CRUD operation. </strong> After login, users can
+                      add, save, edit and delete their profiles. And as you
+                      expected, there are some more features you can explore
+                      like managing your personal favirote list and so on.
                     </p>
                   </li>
                   <li>
                     <p>
-                      <strong>High performance.</strong> Hotflix utilizes SSG
-                      pre- rendering technology which makes it super fast and
-                      smooth.
+                      <strong>High performance. </strong>Netflex utilizes SSG
+                      pre-rendering technology built in Next.js which makes it
+                      super fast and smooth.
                     </p>
                   </li>
                   <li>
                     <p>
-                      <strong>Much more than just a clone.</strong> Hotflix
+                      <strong>Much more than just a clone. </strong> Netflex
                       reproduces the experience of browsing real Netflix by
                       using reusable React hooks and components along with
                       complicated CSS and multiple API calls. This will be the
                       best Netflix clone you have ever seen.
                     </p>
                   </li>
-                  {/* <li>
-                    <p>
-                      <strong>Much more than just a clone.</strong> Hotflix
-                      reproduces the experience of browsing real Netflix by
-                      using reusable React hooks and components along with
-                      complicated CSS and multiple API calls. This will be the
-                      best Netflix clone you have ever seen.
-                    </p>
-                  </li> */}
                 </KeyFeatureList>
               </KeyFeatureListWrapper>
             </CardWrapper>
@@ -403,10 +402,6 @@ const Resume = () => {
 
 export default Resume;
 
-export async function getStaticProps() {
-  return { props: { isHiddenLayout: false } };
-}
-
 export const ResumeSection = styled.section`
   padding: 85px 2.5%;
   color: ${({ theme }) => theme.grey};
@@ -534,33 +529,7 @@ export const ContactItem = styled.li`
     margin-bottom: 0.4rem;
   }
 `;
-export const ButtonWrapper = styled.button`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  background: none;
-  border: none;
-  padding: 0.5rem 0;
-  font-size: 1.4rem;
-  color: ${({ theme }) => theme.grey};
-  @media print {
-    font-size: 1.2rem;
-  }
-  span:first-child {
-    display: inline-block;
-    width: 1.5rem;
-    height: 1.5rem;
-    svg {
-      fill: ${({ theme }) => theme.secondary};
-    }
-  }
-  a {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    /* justify-content: flex-start; */
-  }
-`;
+
 export const TagWrapper = styled.div`
   display: flex;
   gap: 1.2rem;
@@ -702,8 +671,12 @@ export const ResumeStyle = createGlobalStyle`
       svg{fill:#000 !important}
       
     }
-
-    } 
+    .contactList{
+    li:last-child{
+      display: none;
+    }
+    }
+  } 
 
 
 `;

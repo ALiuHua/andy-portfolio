@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useBotContext } from "../../store/bot-context";
+import Link from "next/link";
+import Image from "next/image";
 import {
   RobContainer,
   HeadContainer,
@@ -15,21 +17,55 @@ import {
 import MessageLoader from "./MessageLoader";
 const robContent = {
   self: [
-    "Hello! My name is Adrian Bot 🤖",
-    "I know as much as Adrian. Maybe even a little bit more! 😉",
-    "How can I help you today?",
+    <p>Hello! My name is Andy Liu 🤖</p>,
+    <p>It's very nice to meet you here! 😉</p>,
+    <p>How can I help you today?</p>,
   ],
   question: [
-    "I'm good, just wanna say hi.",
-    "Fun facts about you?",
-    "Other ways to contact you?",
-    "I'd like to hire you!",
+    <p>I'm good, just wanna say hi.</p>,
+    <p>Fun facts about you?</p>,
+    <p>Other ways to contact you?</p>,
+    <p>I'd like to hire you!</p>,
   ],
   answer: [
-    "Well hi there! Thanks for saying hi 😁.I hope you've enjoyed browsing my website!",
-    "1. I used to be a digital media editor✍️ on Tencent platform for 4 years. And there was one article that I wrote got more than 15 million views in less than 15 hours. 2. I want to become a competitive powerlifer💪 in my 30's, and a jacked old man in my 80's 😈. 3. I really really love my wife. She is the most gorgeous woman in the world 👩!",
-    "📧 Here is my email: adrian.li.dev@gmail.com. I'm always open to job opportunities and new connections🤝!",
-    "That's great! I'm so Excited 🕺! Have a look at myresume 💾 and let'schat 💌 further!",
+    <p>Well Hi there 😁. I hope you've enjoyed browsing my website!</p>,
+    [
+      <p>
+        1️⃣ I used to work as a refrigeration engineer at GEA group where I had
+        been working to standardlize products. This work reduced even more than
+        60% hours during project's enginerring phase 📉.
+      </p>,
+      <p>
+        2️⃣ I love travlling around enjoying the view of moutain soared into the
+        sky, stream running down the wood 🌄.
+      </p>,
+      <p>
+        3️⃣ I really really love my family👨‍👩‍👦.They are my precious in my world!"
+      </p>,
+    ],
+    <p>
+      Click <a href={"mailto:andyliu6606@gmail.com"}>📧</a> to send andy an
+      email to <a href={"mailto:andyliu6606@gmail.com"}>liuhua6606@gmail</a>.
+      I'm open to job opportunities and new connections🤝!
+    </p>,
+    <p>
+      <span>That's great! I'm so Excited 🕺!</span>
+      <span>
+        Have a look at my webpage resume
+        <Link href="/resume">
+          <a> 💾</a>
+        </Link>
+        here or download
+        <a
+          href="https://drive.google.com/file/d/1Neh66oJyiG87217mAF55pRB-Lr48LvYK/view?usp=sharing"
+          download
+        >
+          💼
+        </a>
+        directly here. and let's chat
+        <a href={"mailto:andyliu6606@gmail.com"}>💌</a> further!
+      </span>
+    </p>,
   ],
 };
 
@@ -98,7 +134,15 @@ const ChatBot = () => {
       {botShown && (
         <RobContainer ref={botRef}>
           <HeadContainer>
-            <Avatar src="/images/avatar/avatar.jpg" alt="avatar photo" />
+            <Avatar>
+              <Image
+                src="/images/avatar/avatar.jpg"
+                alt="avatar photo"
+                layout="fill"
+                objectFit="cover"
+                objectPosition="50% 0%"
+              />
+            </Avatar>
             <RobDescription>
               <span>Andy Robot</span>
               <span>Ask me a question</span>
@@ -108,30 +152,19 @@ const ChatBot = () => {
             </CloseIcon>
           </HeadContainer>
           <ChatContainer>
-            <div>
-              {robContent.self.map((entry, index) => (
-                <BotLine key={index}>{entry}</BotLine>
-              ))}
-              <a
-                href="https://drive.google.com/file/d/1Neh66oJyiG87217mAF55pRB-Lr48LvYK/view?usp=sharing"
-                download
-              >
-                download file
-              </a>
-            </div>
+            {robContent.self.map((entry, index) => (
+              <BotLine key={index}>{entry}</BotLine>
+            ))}
+
             {chatStart && (
               <>
-                <div>
-                  <QuestionLine ref={answerRef}>
-                    {robContent.question[questionIndex]}
-                  </QuestionLine>
-                </div>
+                <QuestionLine ref={answerRef}>
+                  {robContent.question[questionIndex]}
+                </QuestionLine>
+
                 {isLoading && <MessageLoader />}
                 {!isLoading && (
-                  <div>
-                    {/* <div ref={answerRef}> */}
-                    <BotLine>{robContent.answer[questionIndex]}</BotLine>
-                  </div>
+                  <BotLine>{robContent.answer[questionIndex]}</BotLine>
                 )}
               </>
             )}

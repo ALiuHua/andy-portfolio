@@ -39,13 +39,15 @@ export const HeadContainer = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
-export const Avatar = styled.img`
-  border: 2px solid white;
+export const Avatar = styled.div`
+  /* border: 2px solid #ddd; */
   display: block;
   margin-right: 2rem;
-  width: 4.6rem;
-  height: 4.6rem;
+  width: 5rem;
+  height: 5rem;
   border-radius: 100px;
+  position: relative;
+  overflow: hidden;
 `;
 export const RobDescription = styled.div`
   margin-right: auto;
@@ -58,7 +60,7 @@ export const RobDescription = styled.div`
     font-size: 1.8rem;
   }
   span:nth-child(2) {
-    color: #666;
+    color: #ddd;
     font-weight: 400;
     font-size: 1.4rem;
   }
@@ -91,20 +93,39 @@ export const CloseIcon = styled.div`
 //like in this cast to make scrool bar visiable.
 export const ChatContainer = styled.div`
   height: 60vh;
-
+  font-size: 1.6rem;
   overflow: auto;
   @media only screen and (max-width: 28em) {
     height: calc(100vh - 80px);
   }
 `;
-export const BotLine = styled.p`
+export const BotLine = styled.div`
   width: 80%;
-  padding: 1.2rem 2.4rem;
+  padding: 1rem 2rem;
   background-color: #fff;
   border-radius: 0.8rem;
 
   margin: 1.6rem auto 1.6rem 2rem;
   border: 1px solid #ddd;
+  a:link,
+  a:visited {
+    border-radius: 5px;
+    display: inline-block;
+    padding: 2px 8px;
+  }
+  a:hover,
+  a:active {
+    /* color: #254bde; */
+    background-color: #ffebd2;
+  }
+  p {
+    span {
+      display: block;
+    }
+  }
+  p:not(:last-child) {
+    margin-bottom: 1.6rem;
+  }
 `;
 export const QuestionLine = styled(BotLine)`
   margin: 1.6rem 2rem 1.6rem auto;
@@ -115,8 +136,8 @@ export const BotQuestionWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
-export const BotQuestion = styled.p`
-  padding: 1.2rem 2.4rem;
+export const BotQuestion = styled.div`
+  padding: 1rem 2rem;
   margin: 1.6rem auto 1.6rem 2.4rem;
   background-color: #fff6eb;
   display: inline-block;
