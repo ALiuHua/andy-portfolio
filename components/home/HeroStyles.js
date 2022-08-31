@@ -9,8 +9,6 @@ export const HeroSection = styled.section`
   position: relative;
   z-index: 1;
 `;
-
-//width % is just content or including padding??????
 export const HeroWrapper = styled.div`
   padding: 3.5rem 2.5rem;
   width: 97%;
@@ -19,7 +17,7 @@ export const HeroWrapper = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   p {
-    font-size: clamp(1.6rem, 1.8vw, 1.75rem);
+    font-size: clamp(1.6rem, 2vw, 2rem);
     color: ${({ theme }) => theme.grey};
     margin-top: 2.2rem;
     line-height: 1.7;
@@ -28,7 +26,7 @@ export const HeroWrapper = styled.div`
 
 export const PrimaryHeading = styled.h1`
   margin-bottom: 2.2rem;
-  font-size: clamp(4rem, 4.8vw, 9rem);
+  font-size: clamp(4rem, 4vw, 7rem);
   line-height: 1.1;
   color: ${({ theme }) => theme.title};
   font-family: "Bogart";
@@ -49,6 +47,5 @@ export const SocialButtons = styled.div`
     display: flex;
     gap: 2rem;
     margin-top: 3rem;
-    /* justify-content: center; */
   }
 `;

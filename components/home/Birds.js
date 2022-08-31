@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import BIRDS from "vanta/dist/vanta.birds.min";
-// import Script from "next/script";
+
 export const Birds = React.memo((props) => {
   const [vantaEffect, setVantaEffect] = useState(0);
   const myRef = useRef(null);

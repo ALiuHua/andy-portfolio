@@ -15,7 +15,8 @@ const ProjectCard = ({ project }) => {
     <ProjectCardWrapper>
       <BgWrapper>
         <Image
-          src="/images/netflex/netflex-bg3.jpg"
+          src="/images/netflex/netflex-bg.jpg"
+          alt="netflix screen snap background"
           layout="fill"
           objectFit="cover"
         />

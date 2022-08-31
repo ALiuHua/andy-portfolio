@@ -14,16 +14,19 @@ export const ButtonWrapper = styled.button`
   background: none;
   border: none;
   padding: 0.5rem 0;
-  font-size: 1.4rem;
+  /* font-size: 1.4rem; */
   color: ${({ theme }) => theme.grey};
   position: relative;
   @media print {
-    font-size: 1.2rem;
+    font-size: 10pt !important;
+    /* font-size: 1.2rem; */
   }
   span:first-child {
     display: inline-block;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: clamp(1.4rem, 1.4vw, 1.8rem);
+    height: clamp(1.4rem, 1.4vw, 1.8rem);
+    /* width: 1.5rem;
+    height: 1.5rem; */
     svg {
       fill: ${({ theme }) => theme.secondary};
     }

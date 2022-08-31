@@ -1,10 +1,6 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "styled-components";
-import {
-  // LinkButtonWrapper,
-
-  Icon,
-} from "../layout/header/NavBarStyles";
+import { Icon } from "../layout/header/NavBarStyles";
 import {
   HeroSection,
   HeroWrapper,
@@ -19,15 +15,16 @@ const Hero = () => {
     <HeroSection>
       <HeroWrapper>
         <PrimaryHeading>
-          Hi. I'm Andy Liu.
+          {"Hi. I'm Andy Liu."}
           <br />A front-end developer.
         </PrimaryHeading>
         <p>
-          Being a part of programming world is really great. It's an amazing
-          journey since the first piece of "Hello world" to the functional web
-          development. <br />
-          It's a beautiful thing to see my code transforming into a product that
-          we can use to browse in internet world😄.
+          Being a part of programming world is really great. It&#39;s an amazing
+          journey since the first piece of &#34;Hello world&#34; to the
+          functional web development. <br />
+          {
+            "It's a beautiful thing to see my code transforming into a product that we can use to browse in internet world😄."
+          }
         </p>
         <SocialButtons>
           <LinkButtonWrapper href="https://github.com/ALiuHua">
@@ -42,7 +39,6 @@ const Hero = () => {
           </LinkButtonWrapper>
           <LinkButtonWrapper href="https://www.linkedin.com/in/andy-liu-94697a181/">
             <Icon
-              // src={`${"/icons/logo-linkedin.svg"}`}
               src={`${
                 themeName === "lightTheme"
                   ? "/icons/linkedin.svg"

@@ -8,7 +8,7 @@ export const netflexInfo = {
       {
         listTitle: "Stacks",
         isLink: false,
-        listItem: ["React", "Next.js", "NextAuth.js", "MongoDb"],
+        listItem: ["React", "Next.js", "NextAuth.js", "MongoDB"],
       },
       {
         listTitle: "Links",
@@ -19,7 +19,7 @@ export const netflexInfo = {
         ],
       },
     ],
-    gallery: "/images/netflex/hotflix.gif",
+    gallery: "/images/netflex/netflex.gif",
   },
   features: [
     {
@@ -33,10 +33,11 @@ export const netflexInfo = {
             "So my initial goal was to make a Netflix clone that could offer users the same functionalities like sign up, sign in, create, edit, save, delete the profile, and most importantly, they could watch videos on my website!",
           ],
         },
-        {
-          isImage: true,
-          detail: "/images/netflex/signup.gif",
-        },
+        // {
+        //   isImage: true,
+        //   detail: "/images/netflex/signup.gif",
+        //   alt: "signUp screen",
+        // },
       ],
     },
     {
@@ -56,19 +57,28 @@ export const netflexInfo = {
       gridAreaContent: [
         {
           isImage: true,
-          detail: "/images/netflex/signin.gif",
+          detail: "/images/netflex/signup.gif",
+          alt: "signUp screen",
         },
+        // {
+        //   isImage: true,
+        //   detail: "/images/netflex/signin.gif",
+        //   alt: "sign in screen",
+        // },
         {
           isImage: true,
           detail: "/images/netflex/add_profile.gif",
+          alt: "add profile screen",
         },
         {
           isImage: true,
           detail: "/images/netflex/edit_profile.gif",
+          alt: "edit profile screen",
         },
         {
           isImage: true,
           detail: "/images/netflex/delete_profile.gif",
+          alt: "delete profile screen",
         },
       ],
     },
@@ -81,7 +91,8 @@ export const netflexInfo = {
       gridAreaContent: [
         {
           isImage: true,
-          detail: "/images/hotflix/card.gif",
+          detail: "/images/netflex/card.gif",
+          alt: "netflex card view",
         },
       ],
     },

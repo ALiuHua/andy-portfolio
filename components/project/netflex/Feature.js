@@ -25,6 +25,7 @@ const Feature = ({ feature }) => {
                 <GalleryWrapper>
                   <Image
                     src={item.detail}
+                    alt={item.alt}
                     layout="fill"
                     objectFit="contain"
                     objectPosition="center"

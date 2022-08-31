@@ -5,7 +5,7 @@ import ProjectCard from "./ProjectCard";
 const ProjectGallery = () => {
   return (
     <ProjectSection>
-      <h1>Project I've Build</h1>
+      <h1>{"Project I've Build"}</h1>
       <SectionContent>
         <ProjectCard />
       </SectionContent>

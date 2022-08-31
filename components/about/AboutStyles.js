@@ -1,12 +1,14 @@
 import styled, { ThemeProvider } from "styled-components";
 export const HeroSection = styled.section`
   /* overflow-y: auto; */
-  p {
-    font-size: 1.8rem;
+  p,
+  ul {
+    font-size: clamp(1.6rem, 2vw, 2rem);
     color: ${({ theme }) => theme.grey};
+    margin-bottom: 1.5rem;
   }
   h2 {
-    font-size: 3.5rem;
+    font-size: clamp(2rem, 3vw, 3rem);
     line-height: 1.5;
     color: ${({ theme }) => theme.title};
   }
@@ -29,16 +31,17 @@ export const HeroContainer = styled.div`
   }
 
   h1 {
-    font-size: 7rem;
+    font-size: clamp(5rem, 5vw, 8rem);
     color: ${({ theme }) => theme.title};
-    @media only screen and (max-width: 53em) {
+    margin-bottom: 2.5rem;
+    /* @media only screen and (max-width: 53em) {
       font-size: 6rem;
-    }
+    } */
   }
-  p {
+  /* p {
     font-size: 1.8rem;
     color: ${({ theme }) => theme.grey};
-  }
+  } */
   span {
     display: flex;
     justify-content: center;
@@ -110,6 +113,7 @@ export const ImgContainer = styled.div`
   } */
   @media only screen and (max-width: 72.5em) {
     img {
+      display: block;
       width: 85%;
     }
   }
@@ -121,4 +125,49 @@ export const ImgContainer = styled.div`
 `;
 export const DescriptionContainer = styled.div`
   flex: 1;
+  /* font-size: 1.8rem; */
+  h2 {
+    margin-bottom: 2.5rem;
+  }
+  p {
+  }
+  ul {
+    li {
+      display: flex;
+      gap: 0.8rem;
+      position: relative;
+      margin-bottom: 1rem;
+      ::before {
+        content: "➣";
+        /* position: absolute; */
+        color: ${({ theme }) => theme.arrow};
+      }
+    }
+  }
+`;
+export const ButtonBox = styled.div`
+  display: flex;
+  gap: 2rem;
+`;
+export const ButtonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: inline-block;
+  padding: 0.7rem 1.8rem;
+  background-color: ${({ theme }) => theme.aboutResume};
+  border-radius: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-out;
+
+  :hover {
+    transform: scale(1.05);
+
+    box-shadow: 0 1rem 2rem rgb(0 0 0 / 0.1);
+  }
+  a {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: clamp(0.8rem, 1vw, 1.2rem);
+  }
 `;

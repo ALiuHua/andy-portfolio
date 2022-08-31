@@ -15,41 +15,44 @@ import {
   BotQuestion,
 } from "./ChatBotStyles";
 import MessageLoader from "./MessageLoader";
+
 const robContent = {
   self: [
-    <p>Hello! My name is Andy Liu 🤖</p>,
-    <p>It's very nice to meet you here! 😉</p>,
-    <p>How can I help you today?</p>,
+    "Hello! My name is Andy Liu 🤖",
+    "It's very nice to meet you here! 😉",
+    "How can I help you today?",
   ],
   question: [
-    <p>I'm good, just wanna say hi.</p>,
-    <p>Fun facts about you?</p>,
-    <p>Other ways to contact you?</p>,
-    <p>I'd like to hire you!</p>,
+    "I'm good, just wanna say hi.",
+    "Fun facts about you?",
+    "Other ways to contact you?",
+    "I'd like to hire you!",
   ],
   answer: [
-    <p>Well Hi there 😁. I hope you've enjoyed browsing my website!</p>,
+    <p key="a1">
+      {"Well Hi there 😁. I hope you've enjoyed browsing my website!"}
+    </p>,
     [
-      <p>
-        1️⃣ I used to work as a refrigeration engineer at GEA group where I had
-        been working to standardlize products. This work reduced even more than
-        60% hours during project's enginerring phase 📉.
+      <p key="a2.1">
+        {
+          " 1️⃣ I used to work as a refrigeration engineer at GEA group where I had been working to standardlize products. This work reduced even more than 60% hours during project's enginerring phase 📉."
+        }
       </p>,
-      <p>
+      <p key="a2.2">
         2️⃣ I love travlling around enjoying the view of moutain soared into the
         sky, stream running down the wood 🌄.
       </p>,
-      <p>
-        3️⃣ I really really love my family👨‍👩‍👦.They are my precious in my world!"
+      <p key="a2.3">
+        3️⃣ I really really love my family👨‍👩‍👦.They are my precious in my world!
       </p>,
     ],
-    <p>
+    <p key="a3">
       Click <a href={"mailto:andyliu6606@gmail.com"}>📧</a> to send andy an
-      email to <a href={"mailto:andyliu6606@gmail.com"}>liuhua6606@gmail</a>.
-      I'm open to job opportunities and new connections🤝!
+      email to <a href={"mailto:andyliu6606@gmail.com"}>liuhua6606@gmail</a>. I
+      am open to job opportunities and new connections🤝!
     </p>,
-    <p>
-      <span>That's great! I'm so Excited 🕺!</span>
+    <p key="a4">
+      <span>{"That's great! I'm so Excited 🕺!"}</span>
       <span>
         Have a look at my webpage resume
         <Link href="/resume">
@@ -62,13 +65,13 @@ const robContent = {
         >
           💼
         </a>
-        directly here. and let's chat
+        directly here. and let us chat
         <a href={"mailto:andyliu6606@gmail.com"}>💌</a> further!
       </span>
     </p>,
   ],
 };
-
+console.log(robContent, robContent.self[0]);
 const ChatBot = () => {
   const [chatStart, setChatStart] = useState(false);
   const [questionIndex, setQuestionIndex] = useState(null);
@@ -153,13 +156,15 @@ const ChatBot = () => {
           </HeadContainer>
           <ChatContainer>
             {robContent.self.map((entry, index) => (
-              <BotLine key={index}>{entry}</BotLine>
+              <BotLine key={index}>
+                <p>{entry}</p>
+              </BotLine>
             ))}
 
             {chatStart && (
               <>
                 <QuestionLine ref={answerRef}>
-                  {robContent.question[questionIndex]}
+                  <p>{robContent.question[questionIndex]}</p>
                 </QuestionLine>
 
                 {isLoading && <MessageLoader />}
@@ -178,7 +183,7 @@ const ChatBot = () => {
                     key={index}
                     onClick={clickHandler.bind(null, index)}
                   >
-                    {que}
+                    <p>{que}</p>
                   </BotQuestion>
                 )
               )}
