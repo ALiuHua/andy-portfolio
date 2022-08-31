@@ -34,7 +34,12 @@ const Overview = ({ overview }) => {
         ))}
       </KeywordWrapper>
       <GridWrapper>
-        <Image src={overview.gallery} width={1266} height={720} />
+        <Image
+          src={overview.gallery}
+          alt="netflex screen"
+          width={1266}
+          height={720}
+        />
       </GridWrapper>
     </OverViewContent>
   );

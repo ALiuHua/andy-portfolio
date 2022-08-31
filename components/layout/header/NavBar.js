@@ -17,7 +17,7 @@ const NavBar = ({ toggleTheme, userTheme }) => {
                 ? "/images/brand/logo.svg"
                 : "/images/brand/logo-dark.svg"
             }`}
-            alt=""
+            alt="logo"
           />
         </NavLink>
       </Logo>
