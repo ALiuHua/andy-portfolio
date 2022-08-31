@@ -13,11 +13,9 @@ const BotContextProvider = ({ children }) => {
   // to attached to nav contact button to control click out side and toggle close/open chatbot
   const openBotUI = () => {
     setBotShown(true);
-    console.log("clicked open");
   };
   const closeBotUI = () => {
     setBotShown(false);
-    console.log("clicked close");
   };
 
   return (

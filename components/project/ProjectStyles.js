@@ -1,24 +1,18 @@
 import styled, { css } from "styled-components";
 export const ProjectSection = styled.section`
-  /* padding: 5vw 2.5vw; */
-  /* padding: 5vw 2.5vw; */
   padding: 1%;
   color: ${({ theme }) => theme.grey};
-  /* width: 95%; */
   h1 {
     width: 100%;
     max-width: 85rem;
     margin: 8rem auto 3rem;
-    /* margin: 25rem auto 3rem; */
     color: ${({ theme }) => theme.title};
     padding: 0 3.5rem;
     @media (max-width: 87.5em) {
       padding: 0 2.5rem;
     }
-    //
-    font-size: 3.2rem; //????????
+    font-size: 3.2rem;
     font-weight: 400;
-    /* font-size: clamp(2.6rem, 5vw, 3.2rem); //???????? */
   }
 `;
 export const SectionContent = styled.div`
@@ -26,7 +20,6 @@ export const SectionContent = styled.div`
   max-width: 85rem;
   margin: 0 auto;
   margin-bottom: 3rem;
-  /* margin-top: 8rem; */
   padding: 0 3.5rem;
   @media (max-width: 87.5em) {
     padding: 0 2.5rem;
@@ -45,7 +38,7 @@ export const OverViewContent = styled(SectionContent)`
 export const FeatureContent = styled(OverViewContent)`
   h2 {
     margin-bottom: 2.4rem;
-    font-size: 2.8rem; //????????
+    font-size: 2.8rem;
     color: ${({ theme }) => theme.title};
   }
   :last-child {
@@ -82,10 +75,6 @@ export const ListWrapper = styled.ul`
     line-height: 1.6;
     font-weight: 300;
     ::before {
-      /* content: ${({ isLink }) => {
-        console.log(isLink ? "☞" : "✧");
-        return isLink ? "☞" : "✧";
-      }}; */
       display: flex;
       align-items: center;
       color: ${({ theme }) => theme.arrow};
@@ -103,27 +92,6 @@ export const ListWrapper = styled.ul`
               content: "✧";
             }
           `};
-    /* ${({ isLink }) =>
-      !isLink
-        ? css`
-            ::before {
-              content: "✧";
-              display: flex;
-              align-items: center;
-              color: ${({ theme }) => theme.arrow};
-              font-size: 2rem;
-            }
-          `
-        : css`
-            ::before {
-              content: "☞";
-              display: flex;
-              align-items: center;
-              color: red;
-              font-size: 2rem;
-            }
-          `} */
-
     a:link,
     a:visited {
       position: relative;
@@ -149,13 +117,11 @@ export const ListWrapper = styled.ul`
 `;
 export const GridWrapper = styled.div`
   // gridColnumber  girdGap
-
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
   gap: 3rem;
   justify-content: center;
   align-content: center;
-  /* position: relative; */
 `;
 export const GalleryWrapper = styled.div`
   position: relative;

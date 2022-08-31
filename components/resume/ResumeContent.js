@@ -64,7 +64,7 @@ const contactInfo = [
     src: <DownloadIcon />,
     details: "Download Resume",
     hrefStr:
-      "https://drive.google.com/file/d/1Neh66oJyiG87217mAF55pRB-Lr48LvYK/view?usp=sharing",
+      "https://drive.google.com/file/d/1T3QRJE6evbPme8F49q5Cdqsh2bAfJTdN/view?usp=sharing",
   },
 ];
 const ResumeContent = () => {
@@ -83,7 +83,10 @@ const ResumeContent = () => {
               <ContactList className="contactList">
                 {contactInfo.map((item, index) => (
                   <ContactItem key={index}>
-                    <ContactButton hrefStr={item?.hrefStr}>
+                    <ContactButton
+                      hrefStr={item?.hrefStr}
+                      details={item?.details}
+                    >
                       <span className="contactIcon">{item.src}</span>
                       <span>{item.details}</span>
                     </ContactButton>

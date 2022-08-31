@@ -1,6 +1,5 @@
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 export const HeroSection = styled.section`
-  /* overflow-y: auto; */
   p,
   ul {
     font-size: clamp(1.6rem, 2vw, 2rem);
@@ -17,7 +16,6 @@ export const HeroContainer = styled.div`
   width: 50%;
   height: 100vh;
   margin: 0 auto;
-  /* -webkit-scroll-margin-top: 8rem; */
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -34,14 +32,7 @@ export const HeroContainer = styled.div`
     font-size: clamp(5rem, 5vw, 8rem);
     color: ${({ theme }) => theme.title};
     margin-bottom: 2.5rem;
-    /* @media only screen and (max-width: 53em) {
-      font-size: 6rem;
-    } */
   }
-  /* p {
-    font-size: 1.8rem;
-    color: ${({ theme }) => theme.grey};
-  } */
   span {
     display: flex;
     justify-content: center;
@@ -89,14 +80,6 @@ export const ContentContainer = styled.div`
   flex-direction: ${({ layout }) => (layout ? layout : "row")};
   gap: 3rem;
   align-items: center;
-  /* @media only screen and (max-width: ${({ theme: { media } }) => media.sm}) {
-    flex-direction: ${({ layout }) => (layout ? layout : "column")};
-  } */
-  /* @media only screen and (max-width: 72.5em) {
-    flex-direction: column-reverse;
-    width: 80%;
-    margin: 9rem auto;
-  } */
   @media only screen and (max-width: 53em) {
     flex-direction: column-reverse;
     width: 85%;
@@ -108,24 +91,15 @@ export const ImgContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* img {
-    width: 85%;
-  } */
   @media only screen and (max-width: 72.5em) {
     img {
       display: block;
       width: 85%;
     }
   }
-  /* @media only screen and (max-width: 53em) {
-    img {
-      width: 85%;
-    }
-  } */
 `;
 export const DescriptionContainer = styled.div`
   flex: 1;
-  /* font-size: 1.8rem; */
   h2 {
     margin-bottom: 2.5rem;
   }
@@ -139,7 +113,6 @@ export const DescriptionContainer = styled.div`
       margin-bottom: 1rem;
       ::before {
         content: "➣";
-        /* position: absolute; */
         color: ${({ theme }) => theme.arrow};
       }
     }

@@ -1,69 +1,19 @@
-/*
-theme structer as onject and color should be wrapped with '' and seperated with ,   
-
-*/
-
-// export const lightTheme = {
-//   accentColor: "#ffc4ff",
-//   backgroundColor: "#fefaf6",
-//   mainHeadingColor: "#232320",
-//   headingColor: "#232320",
-//   navColor: "#232320",
-//   textColor: "#656270",
-//   selectionColor: "#001d9b",
-
-// primary: '#fefaf6',
-//   secondary: '#232320',
-//   line: '#ffc4ff',
-//   grey: '#656270',
-//   title: '#232320',
-//   dropdownText: '#fff',
-//   dropdownLine: '#ffc4ff',
-//   btnHover: '#3c3c3c',
-//   aboutLine: '#fdf5ee',
-//   arrow: '#fe66fe',
-//   aboutResume: 'transparent',
-//   projectText: '#fefaf6',
-// };
-// export const darkTheme = {
-//   accentColor: "#8892b0",
-//   backgroundColor: "#0a192f",
-//   mainHeadingColor: "#64ffda",
-//   headingColor: "#ccd6f6",
-//   navColor: "#64ffda",
-//   textColor: "#8892b0",
-//   selectionColor: "#001d9b",
-
-// primary: '#0a192f',
-// secondary: '#64ffda',
-// line: '#ccd6f6',
-// grey: '#8892b0',
-// title: '#ccd6f6',
-// dropdownText: '#0a192f',
-// dropdownLine: '#8892b0',
-// btnHover: '#00f6bb',
-// aboutLine: '#071325',
-// arrow: '#64ffda',
-// aboutResume: '#64ffda',
-// projectText: '#64ffda',
-// };
-
 export const lightTheme = {
   primary: "#fefaf6",
   secondary: "#232320",
   line: "#ffc4ff",
   grey: "#656270",
   title: "#232320",
-  dropdownText: "#fff",
-  dropdownLine: "#ffc4ff",
-  btnHover: "#3c3c3c",
+  // dropdownText: "#fff",
+  // dropdownLine: "#ffc4ff",
+  // btnHover: "#3c3c3c",
   aboutLine: "#fdf5ee",
   arrow: "#fe66fe",
   aboutResume: "transparent",
-  projectText: "#fefaf6",
-  meida: {
-    sm: "980px",
-  },
+  // projectText: "#fefaf6",
+  // meida: {
+  //   sm: "980px",
+  // },
 };
 
 export const darkTheme = {
@@ -71,13 +21,12 @@ export const darkTheme = {
   secondary: "#64ffda",
   line: "#ccd6f6",
   grey: "#c5cad9",
-  // grey: "#8892b0",
   title: "#ccd6f6",
-  dropdownText: "#0a192f",
-  dropdownLine: "#8892b0",
-  btnHover: "#00f6bb",
+  // dropdownText: "#0a192f",
+  // dropdownLine: "#8892b0",
+  // btnHover: "#00f6bb",
   aboutLine: "#071325",
   arrow: "#64ffda",
   aboutResume: "#64ffda",
-  projectText: "#64ffda",
+  // projectText: "#64ffda",
 };

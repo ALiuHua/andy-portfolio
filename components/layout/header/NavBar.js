@@ -2,7 +2,6 @@ import React from "react";
 import { Nav, NavLink, Logo, NavList, LinkWrapper, Icon } from "./NavBarStyles";
 import ThemeToggler from "./ThemeToggler";
 import { useRouter } from "next/router";
-// import Image from "next/image";
 import { useBotContext } from "../../store/bot-context";
 const NavBar = ({ toggleTheme, userTheme }) => {
   const { pathname } = useRouter();
@@ -88,6 +87,3 @@ const NavBar = ({ toggleTheme, userTheme }) => {
 };
 
 export default NavBar;
-
-//   Next Link is also just a element. can also redirect to outside website
-//Public files path used in src attribute. can just "/images/...."   just start with /

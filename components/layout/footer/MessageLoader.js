@@ -13,20 +13,11 @@ const MessageLoader = () => {
 
 export default MessageLoader;
 export const TimeDelay = ({ children }) => {
-  // const [indx, setIndx] = useState(index);
-  // const [newr, setNewr] = useState(false);
-  // const [isLoading, setIsLoading] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
-  const [isFirst, setIsFirst] = useState(true);
-
   useEffect(() => {
-    console.log("ruing 2");
     setTimeout(() => {
       setIsLoading(false);
-
-      console.log("ruing 3");
     }, 2000);
-
     return () => {};
   }, []);
 
@@ -35,11 +26,11 @@ export const TimeDelay = ({ children }) => {
 const Container = styled.div`
   position: relative;
   background-color: #fff6eb;
-  padding: 1.2rem 2.4rem;
-
-  border-radius: 0.8rem;
+  padding: 0.8rem 2.4rem;
+  border-radius: 2rem;
   border-bottom-left-radius: 2px;
   margin-top: 1.6rem;
+  margin-bottom: 1.6rem;
   margin-left: 3rem;
   width: 30%;
   display: flex;
@@ -50,7 +41,6 @@ const Container = styled.div`
     position: absolute;
     width: 1.5rem;
     height: 1.5rem;
-    /* background-color: red; */
     bottom: 0;
     left: 0;
     transform: translateX(-95%);
@@ -58,16 +48,13 @@ const Container = styled.div`
     clip-path: polygon(100% 0, 100% 100%, 50% 100%);
     background-color: #fff6eb;
   }
-  /* if you set width and height which are not work; maybe you need to set element as inline-block */
   span {
-    /* padding: 0;
-    margin: 0; */
     width: 0.8rem;
     height: 0.8rem;
     margin: 1rem 0;
     display: inline-block;
     background-color: #ffdfb9;
-    /* line-height: 1; */
+
     &:not(:last-child) {
       margin-right: 1rem;
     }
@@ -88,15 +75,23 @@ const Container = styled.div`
   @keyframes loading {
     0% {
       transform: translateY(0px);
-      background-color: #ffdfb9; // rgba(20,105,69,.7);
+      background-color: #ffdfb9;
+    }
+    14% {
+      transform: translateY(5px);
+      background-color: #ffdfb9;
     }
     28% {
-      transform: translateY(-10px);
-      background-color: #ffc988; //rgba(20,105,69,.4);
+      transform: translateY(-5px);
+      background-color: #ffc988;
     }
     44% {
+      transform: translateY(5px);
+      background-color: #feb254;
+    }
+    60% {
       transform: translateY(0px);
-      background-color: #feb254; //rgba(20,105,69,.2);
+      background-color: #feb254;
     }
   }
 `;

@@ -39,13 +39,10 @@ export const ProjectCardHeader = styled.h2`
   margin-bottom: 2rem;
 `;
 export const ProjectCardDescription = styled.p`
-  /* padding: 1.5rem 1.5rem; */
   font-size: 1.6rem;
-  /* background-color: rgba(235, 235, 235); */
   margin-bottom: 2.5rem;
 `;
 export const ProjectCardTag = styled.div`
-  /* background-color: rgba(55, 55, 55, 0.8); */
   margin-bottom: 2.5rem;
   display: flex;
   justify-content: flex-end;
@@ -64,4 +61,3 @@ export const LinkBar = styled(ProjectCardTag)`
     height: 2.5rem !important;
   }
 `;
-// export const Trailer = styled(ProjectCardWrapper)``;

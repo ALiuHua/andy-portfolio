@@ -60,7 +60,7 @@ const robContent = {
         </Link>
         here or download
         <a
-          href="https://drive.google.com/file/d/1Neh66oJyiG87217mAF55pRB-Lr48LvYK/view?usp=sharing"
+          href="https://drive.google.com/file/d/1T3QRJE6evbPme8F49q5Cdqsh2bAfJTdN/view?usp=sharing"
           download
         >
           💼
@@ -71,7 +71,6 @@ const robContent = {
     </p>,
   ],
 };
-console.log(robContent, robContent.self[0]);
 const ChatBot = () => {
   const [chatStart, setChatStart] = useState(false);
   const [questionIndex, setQuestionIndex] = useState(null);
@@ -79,12 +78,6 @@ const ChatBot = () => {
   const [isLoading, setIsLoading] = useState(true);
   const botRef = useRef();
   const answerRef = useRef();
-  // need to be optimized. too many time runing.
-  console.log(tbotRef);
-  // this event handler will ouccer every time when the chat mount. but at first,i got a
-  //bug that this click handler runing twice but i click once. so it's this handler has been
-  // attached twice. but only removed once. because i got project page also attacehed the bot component
-  // when i click project link which cause handler been attached twice.
   useEffect(() => {
     const clickOutsideHandler = (e) => {
       if (
@@ -93,44 +86,30 @@ const ChatBot = () => {
       )
         closeBotUI();
     };
-    console.log("handler added");
     document.addEventListener("mousedown", clickOutsideHandler);
     return () => {
-      console.log("handler removed");
       document.removeEventListener("mousedown", clickOutsideHandler);
     };
   }, []);
-  // one issue still need to be address: click outside handler still works on click on the contact link.
-  // issue on this part:
-  /* i want to add spinner before the message shown. it's ok to understand that we need
-  to use setTimeout and useEffect together.
-  the problem is that i want to create a component that can render spinner first and then render 
-  children content later. but because i need to reuse this component for different question. and i need
-  useState to make this component re-render. but the problem is that state will perserve and i can 
-  only change state in useEffect part and can not re-initial state when it's render. in this case we
-  need to another handler to reinitial state for each re-render. */
+  /* add spinner before the message shown. Using setTimeout and useEffect to delay and init component together.
+  Reuse this component for different question so that we need useState to make this component re-render. 
+  but the problem is that state will perserve and i can only change state in useEffect part and can not re-initial state when 
+  it's rendering. in this case we need to another handler to reinitial state for each re-render. */
   useEffect(() => {
     const identifier = setTimeout(() => {
       setIsLoading(false);
       answerRef.current?.scrollIntoView({ behavior: "smooth" });
-      // be familary with this functionality: dom.scroolIntoView({ behavior: "smooth" });
-    }, 2000);
+    }, 1000);
     return () => {
       clearTimeout(identifier);
     };
   }, [questionIndex]);
 
-  // <a href="mailto: liuhua6606@163.com">Send email</a>   to create a link to send email
+  //Re-init re-render state for delay.
   const clickHandler = (index) => {
     setChatStart(true);
     setQuestionIndex(index);
-    //Re-init re-render state for delay.
     setIsLoading(true);
-    // const robContentcopy = robContent.question.map((entry, indx) =>
-    //   indx === index ? null : entry
-    // );
-    // setQuestionState(robContentcopy);
-    // console.log(robContentcopy);
   };
   return (
     <>

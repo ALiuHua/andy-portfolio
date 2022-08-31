@@ -33,11 +33,6 @@ export const netflexInfo = {
             "So my initial goal was to make a Netflix clone that could offer users the same functionalities like sign up, sign in, create, edit, save, delete the profile, and most importantly, they could watch videos on my website!",
           ],
         },
-        // {
-        //   isImage: true,
-        //   detail: "/images/netflex/signup.gif",
-        //   alt: "signUp screen",
-        // },
       ],
     },
     {
@@ -60,11 +55,6 @@ export const netflexInfo = {
           detail: "/images/netflex/signup.gif",
           alt: "signUp screen",
         },
-        // {
-        //   isImage: true,
-        //   detail: "/images/netflex/signin.gif",
-        //   alt: "sign in screen",
-        // },
         {
           isImage: true,
           detail: "/images/netflex/add_profile.gif",

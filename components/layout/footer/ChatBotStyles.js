@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { flattenDiagnosticMessageText } from "typescript";
 
 export const RobContainer = styled.div`
   position: fixed;
@@ -40,7 +39,6 @@ export const HeadContainer = styled.div`
   justify-content: space-between;
 `;
 export const Avatar = styled.div`
-  /* border: 2px solid #ddd; */
   display: block;
   margin-right: 2rem;
   width: 5rem;
@@ -89,8 +87,6 @@ export const CloseIcon = styled.div`
   }
 `;
 
-// we must give a fixed height/width to make a container overflow take into effect
-//like in this cast to make scrool bar visiable.
 export const ChatContainer = styled.div`
   height: 60vh;
   font-size: 1.6rem;
@@ -115,7 +111,6 @@ export const BotLine = styled.div`
   }
   a:hover,
   a:active {
-    /* color: #254bde; */
     background-color: #ffebd2;
   }
   p {

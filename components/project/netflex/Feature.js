@@ -47,20 +47,3 @@ const Feature = ({ feature }) => {
 };
 
 export default Feature;
-
-//<div>
-//   <DetailContent>
-//     After 8 months of self-teaching, I decided to build a big and
-//     comprehensive project without help from tutorials. The first idea
-//     that came into my mind was a Netflix clone. Simply because I watch
-//     it every day! I'm very familiar with its UI and UX, as well as all
-//     the basic functionalities. Wouldn't it be so cool if I could make my
-//     own Netflix?
-//   </DetailContent>
-//   <DetailContent>
-//     So my initial goal was to make a Netflix clone that could offer
-//     users the same functionalities like sign up, sign in, create, edit,
-//     save, delete the profile, and most importantly, they could watch
-//     videos on my website!
-//   </DetailContent>
-// </div>

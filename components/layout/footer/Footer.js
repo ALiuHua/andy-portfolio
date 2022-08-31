@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import ChatBot from "./ChatBot";
 import { useBotContext } from "../../store/bot-context";
 import { FooterWrapper, StyledChatBotIcon, Button } from "./FootStyles";
@@ -11,9 +11,7 @@ const Footer = () => {
           <StyledChatBotIcon />
         </Button>
       )}
-      {botShown && <ChatBot></ChatBot>}
-      {/* {botShown && <ChatBot ref={botRef}></ChatBot>} */}
-      {/* function components can not be given ref */}
+      {botShown && <ChatBot />}
     </FooterWrapper>
   );
 };

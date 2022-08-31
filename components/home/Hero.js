@@ -10,7 +10,6 @@ import {
 } from "./HeroStyles";
 const Hero = () => {
   const { themeName } = useContext(ThemeContext);
-  console.log(themeName);
   return (
     <HeroSection>
       <HeroWrapper>
@@ -23,7 +22,7 @@ const Hero = () => {
           journey since the first piece of &#34;Hello world&#34; to the
           functional web development. <br />
           {
-            "It's a beautiful thing to see my code transforming into a product that we can use to browse in internet world😄."
+            "It's a beautiful thing to see my code transforming into a product that we can use to browse in internet world 😃."
           }
         </p>
         <SocialButtons>

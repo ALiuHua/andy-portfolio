@@ -2,14 +2,9 @@ import styled from "styled-components";
 
 export const ThemeTogglerWrapper = styled.div`
   padding: 2.5rem 3.5rem;
-  /* transform: translate(1rem, -2px); */
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* @media (max-width: 53.125em) {
-    margin-left: auto;
-  } */
   @media only screen and (max-width: 87.5em) {
     padding: 2.5rem 2.5rem;
   }
@@ -49,9 +44,6 @@ export const ThemeTogglerWrapper = styled.div`
     --color: ${({ theme }) => theme.secondary};
     width: 3.5rem;
     height: 3.5rem;
-    /* width: 4.5rem;
-    height: 4.5rem; */
-
     position: relative;
     .button {
       height: 100%;
@@ -168,8 +160,3 @@ export const ThemeTogglerWrapper = styled.div`
     }
   }
 `;
-
-// icon size is control by font-size and html tag by media query. but it seems like i can onyl
-//control size at html instead of in this component?????
-
-// color is not shown as expected but similar; maybe it's caused by zindex.

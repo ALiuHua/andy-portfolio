@@ -28,19 +28,15 @@ function MyApp({ Component, pageProps }) {
         <meta property="og:title" content="Andy Liu | Front-End Developer" />
         <meta
           property="og:image"
-          content="https://adrian-li.vercel.app/images/brand/home.png"
+          content="https://andyliu-dev.vercel.app/images/brand/home.png"
         />
         <meta property="og:description" content="Andy Liu's portfolio." />
-        <meta property="og:url" content="https://adrian-li.vercel.app/" />
+        <meta property="og:url" content="https://andyliu-dev.vercel.app/" />
       </Head>
 
       <Layout>
         <Component {...pageProps} />
       </Layout>
-
-      {/* <Layout>
-        <Component {...pageProps} />
-      </Layout> */}
     </>
   );
 }

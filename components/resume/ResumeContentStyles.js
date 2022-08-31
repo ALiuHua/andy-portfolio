@@ -5,29 +5,19 @@ export const ResumeSection = styled.section`
   font-size: clamp(1.4rem, 1.4vw, 1.8rem);
   p {
     margin-bottom: 2rem;
-    /* font-size: 1.4rem; */
-  }
-  ul {
-    /* list-style: circle; */
-    /* list-style: disc; */
   }
   li {
     display: list-item;
     margin-bottom: 1.8rem;
-    /* font-size: 1.4rem; */
   }
   button {
     font-size: inherit;
   }
-  /* position: relative; */
 `;
 export const ResumeWrapper = styled.div`
-  //纸张内容盒子
   box-sizing: border-box;
   position: relative;
   width: 80vw;
-  /* width: 210mm;
-  height: 297mm; */
   padding: 6vw 5vw;
   margin: 0 auto;
   display: flex;
@@ -57,7 +47,6 @@ export const BriefInfo = styled.div`
   }
   ::before {
     content: "<";
-    /* top: 3%; */
     top: 6vw;
     transform: translateY(-50%);
   }
@@ -85,7 +74,6 @@ export const Title = styled.h1`
   span {
     display: block;
     font-size: 1.8rem;
-    /* font-weight: 400; */
     font-weight: 700;
   }
   span:first-child {
@@ -113,16 +101,9 @@ export const SubTitle = styled.h2`
   ::before {
     content: " /";
     margin-right: 8px;
-    /* font-weight: 700;
-    font-size: 1.4rem; */
   }
-  /* @media print {
-    font-size: 1.4rem;
-  } */
 `;
-export const ContactList = styled.ul`
-  /* list-style: none; */
-`;
+export const ContactList = styled.ul``;
 export const ContactItem = styled.li`
   list-style: none;
 
@@ -135,9 +116,6 @@ export const TagWrapper = styled.div`
   display: flex;
   gap: 1.2rem;
   flex-wrap: wrap;
-  /* li {
-    margin-bottom: 0;
-  } */
 `;
 export const SkillTag = styled.div`
   padding: 3px 6px;
@@ -152,7 +130,6 @@ export const SkillTag = styled.div`
     height: 1.6rem;
   }
   span {
-    /* font-size: 1.3rem; */
     font-size: 1.4rem;
     color: ${({ color }) => color || "#fff"};
   }
@@ -160,10 +137,6 @@ export const SkillTag = styled.div`
 export const StageItem = styled.div`
   display: flex;
   margin-bottom: 1.4rem;
-  /* font-size: 1.4rem; */
-  /* @media print {
-    font-size: 1.2rem;
-  } */
   div {
     display: flex;
     flex-direction: column;
@@ -182,12 +155,10 @@ export const StageItem = styled.div`
   ::before {
     content: ">>";
     margin-right: 0.5rem;
-    /* font-size: 0.1rem; */
   }
 `;
 export const KeyFeatureListWrapper = styled.div`
   & > span {
-    /* font-size: 1.4rem; */
     display: block;
     margin-bottom: 1rem;
     @media print {
@@ -206,7 +177,6 @@ export const KeyFeatureList = styled.ul`
       content: "●";
       margin-right: 1rem;
     }
-    /* transform: translateX(15px); */
   }
 `;
 
@@ -216,35 +186,12 @@ export const ResumeStyle = createGlobalStyle`
       color:#000
     }
     @page{
-      // 打印纸张样式
       size: A4;
       margin:0.5cm;
-      /* margin: 2cm 3cm; */
-      /* margin:220px   */
-      // this is the default value of margin in print menu selection. if we set 0 here, then the default margin value is 0;
-    // 虽然我们打印的是html标签内的内容， 但是此处的margin 设置和在html标签中设置margin仍不一样
-    }
-    html{
-      /* margin: 0 !important; */
-          /* background-color: blue; */
-
-        // do i need this repeate code as @media screen 
-        // in fact we don't need it, because i test that we can inherit background color from normall style code or @ media all. but not @media screen
-      //print whole page  
-     
     }
     body{
-          /* width:100%;
-        
-          aspect-ratio: 21/29.7;// why this is not working
-          background-color: green;
-          margin: 0 auto; */
           margin: 0 !important;
-        
-          /* background-color: #fff !important;  // needed later */
-          /* width:21cm;
-          height: 29.7cm */
-          
+          background-color: #fff !important;     
     }
     section{
       padding:0 !important;
@@ -255,16 +202,12 @@ export const ResumeStyle = createGlobalStyle`
       h1{
         span {
           font-size: 16pt !important;
-    
   }
   span:first-child {
     font-size: 25pt !important;
  
   }
-  
-
       }
-      
     }
     header{display:none}
     footer{display:none !important}
@@ -274,13 +217,10 @@ export const ResumeStyle = createGlobalStyle`
       width: 210mm !important;
       height: 297mm !important;
       background:#fff;
-      /* padding: 60px 50px; */
       padding: 1cm;
-      /* padding: 1.5cm; */
       margin: 0 auto;
       display: flex;
       gap: .8cm;
-      /* gap: 4rem; */
       border:none;
     }
     .contactIcon{
@@ -293,6 +233,4 @@ export const ResumeStyle = createGlobalStyle`
     }
     }
   } 
-
-
 `;

@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React from "react";
 import GlobalStyles from "../../styles/GlobalStyles";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "../../styles/Theme";
@@ -15,16 +15,15 @@ const Layout = ({ children }) => {
   const currentPath = router.pathname;
   return (
     <>
-      <script
+      <Script
         src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"
         strategy="beforeInteractive"
-      ></script>
-      <script
+      ></Script>
+      <Script
         src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"
         strategy="beforeInteractive"
-      ></script>
+      ></Script>
       <BotContextProvider>
-        {console.log(userTheme)}
         <ThemeProvider
           theme={
             userTheme === "lightTheme"
@@ -46,8 +45,3 @@ const Layout = ({ children }) => {
 };
 
 export default Layout;
-// here is an issue that: we need to setup localStorage and setState. Because they
-//are at same handler that we can't trust the state at once because its updated asynclly.
-// so we need to set localstorage separatly with fixed value insted of just use state variable
-//insert birds component here is a better solution because we can pass theme props easily and can easily
-//set this up in other page if we want.
