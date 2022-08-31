@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import BIRDS from "vanta/dist/vanta.birds.min";
-
+// eslint-disable-next-line react/display-name
 export const Birds = React.memo((props) => {
   const [vantaEffect, setVantaEffect] = useState(0);
   const myRef = useRef(null);
