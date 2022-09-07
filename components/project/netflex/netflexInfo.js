@@ -14,8 +14,8 @@ export const netflexInfo = {
         listTitle: "Links",
         isLink: true,
         listItem: [
-          { title: "Site", src: "#" },
-          { title: "Code", src: "#" },
+          { title: "Site", src: "https://next-media-andy.vercel.app/" },
+          { title: "Code", src: "https://github.com/ALiuHua/netFlex" },
         ],
       },
     ],
