@@ -179,8 +179,8 @@ const ResumeContent = () => {
                     Netflex - A project which can give you the same experience
                     as Netflix
                   </span>
-                  <a href="#">LIVE DEMO</a>
-                  <a href="#">CODE</a>
+                  <a href="https://next-media-andy.vercel.app/">LIVE DEMO</a>
+                  <a href="https://github.com/ALiuHua/netFlex">CODE</a>
                 </div>
               </StageItem>
               <p>
