@@ -58,7 +58,7 @@ const contactInfo = [
   {
     src: <PhoneOutIcon />,
     details: "0405-056-659",
-    hrefStr: "tel:+61 0432548840",
+    hrefStr: "tel:+61 0405056659",
   },
   {
     src: <DownloadIcon />,
@@ -154,12 +154,12 @@ const ResumeContent = () => {
             <CardWrapper>
               <SubTitle>About me</SubTitle>
               <p>
-                I am a self-taught React Front-End Developer who is experienced
+                I am a Front-End Developer who is experienced
                 in:
               </p>
               <KeyFeatureList>
                 <li>
-                  Building Front-End Web Applications (HTML, JavaScript ES6,
+                  Building Front-End Web Applications (HTML, JavaScript ES6, TypeScript, 
                   React, Next.js)
                 </li>
                 <li>
@@ -167,7 +167,7 @@ const ResumeContent = () => {
                   modules)
                 </li>
                 <li>Building Back-End database(MongoDB, Firebase)</li>
-                <li>Interacting with database(RESTful APIs)</li>
+                <li>Interacting with database and consuming third-party API(RESTful APIs)</li>
                 <li>Version Control tools(Git, Github)</li>
               </KeyFeatureList>
             </CardWrapper>
@@ -176,15 +176,15 @@ const ResumeContent = () => {
               <StageItem>
                 <div>
                   <span>
-                    Netflex - A project which can give you the same experience
+                    Netflex Media Streaming - A project which can give you the same experience
                     as Netflix
                   </span>
-                  <a href="https://next-media-andy.vercel.app/">LIVE DEMO</a>
+                  <a href="https://netflex-aliuhua.vercel.app/">LIVE DEMO</a>
                   <a href="https://github.com/ALiuHua/netFlex">CODE</a>
                 </div>
               </StageItem>
               <p>
-                A production-ready, open-source Netflix clone built with React,
+                A production-ready, open-source media streaming project built with React,
                 Next.js, styled-component, NextAuth.js, and MongoDB.
               </p>
               <KeyFeatureListWrapper>
@@ -192,9 +192,8 @@ const ResumeContent = () => {
                 <KeyFeatureList>
                   <li>
                     <p>
-                      <strong>Fully responsive with great UX and UI. </strong>
-                      It can fit perfectly well with all kinds of screen
-                      devices.
+                      <strong>Fully responsive across different devices with great UX and UI. </strong>
+                      It can fit perfectly well with all kinds of screen.
                     </p>
                   </li>
                   <li>
